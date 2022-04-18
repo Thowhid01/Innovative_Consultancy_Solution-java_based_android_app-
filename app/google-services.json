@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "486174064663",
+    "project_id": "innovative-consultancy-882f5",
+    "storage_bucket": "innovative-consultancy-882f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486174064663:android:f190da54908fefd9bcdc52",
+        "android_client_info": {
+          "package_name": "com.efty.innovativeconsultancysolutions"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "486174064663-krrbbi4ctp5fvrjea8tfmv4rrl4nk9pr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.efty.innovativeconsultancysolutions",
+            "certificate_hash": "bcb4c889be7c558c961fd35b333593d0211042dc"
+          }
+        },
+        {
+          "client_id": "486174064663-saddtm1c5tqdgk3d1h2dqnmlrb4p0nc4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNE4YbMswxy00pmw0mIv13XHQoxb9nOfs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "486174064663-saddtm1c5tqdgk3d1h2dqnmlrb4p0nc4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
