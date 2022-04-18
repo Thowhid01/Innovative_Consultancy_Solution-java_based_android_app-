@@ -27,12 +27,12 @@
             android:textSize="20sp"
             android:textColor="@color/black"/>
         <EditText
+            android:id="@+id/signUpEmailEdittextId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
             android:gravity="center"
             android:layout_margin="5dp"
-
             android:background="@color/white"
             android:textColorHint="@color/black"/>
         <TextView
@@ -44,6 +44,7 @@
             android:textSize="20sp"
             android:textColor="@color/black"/>
         <EditText
+            android:id="@+id/signUpPasswordEdittextId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
