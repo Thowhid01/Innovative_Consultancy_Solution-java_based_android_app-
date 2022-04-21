@@ -34,6 +34,8 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
         signUpPasswordEdittext=findViewById(R.id.signUpPasswordEdittextId);
         signupactivitySignupButton = findViewById(R.id.signupactivitySignupButtonid);
         signupactivitySignupButton.setOnClickListener(this);
+        loginSignupActivityButton=findViewById(R.id.loginSignupActivityButtonId);
+        loginSignupActivityButton.setOnClickListener(this);
 
     }
 
@@ -42,6 +44,10 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
         if(view.getId()==R.id.signupactivitySignupButtonid)
         {
             userSignup();
+        }
+        else if(view.getId()==R.id.loginSignupActivityButtonId){
+            Intent intent = new Intent(signup_activity.this,login_activity.class);
+            startActivity(intent);
         }
     }
 

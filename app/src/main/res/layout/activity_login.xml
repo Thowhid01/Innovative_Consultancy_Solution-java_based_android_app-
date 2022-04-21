@@ -27,6 +27,7 @@
             android:textSize="20sp"
             android:textColor="@color/black"/>
         <EditText
+            android:id="@+id/loginActivityEmailEdId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
@@ -44,6 +45,7 @@
             android:textSize="20sp"
             android:textColor="@color/black"/>
         <EditText
+            android:id="@+id/loginActivityPasswordEdId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -53,6 +55,7 @@
             android:background="@color/white"
             android:textColorHint="@color/black"/>
         <Button
+            android:id="@+id/loginActivityLoginBtnId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
