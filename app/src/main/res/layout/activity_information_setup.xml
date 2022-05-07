@@ -23,14 +23,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:text="User Name"
+                android:text="Name"
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:textColor="@color/black"/>
             <EditText
+                android:id="@+id/informationsetupedittextnameid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="User Name"
+                android:hint="Name"
                 android:gravity="center"
                 android:layout_margin="5dp"
                 android:background="@color/white"
@@ -45,6 +46,7 @@
                 android:textSize="20sp"
                 android:textColor="@color/black"/>
             <EditText
+                android:id="@+id/informationsetupedittextphoneid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Phone"
@@ -62,6 +64,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/black"/>
             <EditText
+                android:inputType="date"
+                android:id="@+id/informationsetupedittextdateid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Date"
@@ -79,22 +83,26 @@
                 android:textSize="20sp"
                 android:textColor="@color/black"/>
             <RadioGroup
+                android:id="@+id/informationsetuperadiogroupid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <RadioButton
+                    android:id="@+id/informationsetupradiobuttonmaleid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Male"
                     android:layout_marginRight="20dp">
                 </RadioButton>
                 <RadioButton
+                    android:id="@+id/informationsetupradiobuttonfemaleid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Fe_Male"
                     android:layout_marginRight="20dp">
                 </RadioButton>
                 <RadioButton
+                    android:id="@+id/informationsetupradiobuttonnottosayid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Prefer not to say">
@@ -110,6 +118,7 @@
                 android:textSize="20sp"
                 android:textColor="@color/black"/>
             <EditText
+                android:id="@+id/informationsetupedittextworkbackgroundid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Work Background"
@@ -128,6 +137,7 @@
                 android:textSize="20sp"
                 android:textColor="@color/black"/>
             <EditText
+                android:id="@+id/informationsetupedittextbloodgroupid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Blood Group"
@@ -145,15 +155,16 @@
                 android:textSize="20sp"
                 android:textColor="@color/black"/>
             <Button
+                android:id="@+id/informationsetupprofileimageid"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#25593E"
                 android:text="upload"
                 android:textSize="17sp"
                 android:textColor="@color/white"
-                ></Button>
+                />
             <Button
-                android:id="@+id/loginActivityLoginBtnId"
+                android:id="@+id/informationsetupupdatebuttonid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
