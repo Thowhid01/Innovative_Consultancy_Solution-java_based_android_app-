@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/InnovativeConsultancySolutions/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1625" />
+        <entry key="..\:/AndroidStudioProjects/InnovativeConsultancySolutions/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1625" />
+        <entry key="..\:/AndroidStudioProjects/InnovativeConsultancySolutions/app/src/main/res/layout/activity_catagory_select.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/InnovativeConsultancySolutions/app/src/main/res/layout/activity_getting_started.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/InnovativeConsultancySolutions/app/src/main/res/layout/activity_information_setup.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/InnovativeConsultancySolutions/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/InnovativeConsultancySolutions/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/AndroidStudioProjects/InnovativeConsultancySolutions/app/src/main/res/layout/activity_signup.xml" value="0.25416666666666665" />

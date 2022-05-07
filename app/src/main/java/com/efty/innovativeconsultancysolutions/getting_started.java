@@ -19,13 +19,13 @@ public class getting_started extends AppCompatActivity {
 
         loginActivityGettingButton=findViewById(R.id.loginActivityGettingButtonId);
         signupgettingStartActivityButton=findViewById(R.id.signupgettingStartActivityButtonid);
-        signupgettingStartActivityButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getting_started.this,signup_activity.class);
-                startActivity(intent);
-            }
-        });
+       signupgettingStartActivityButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent=new Intent(getting_started.this,signup_activity.class);
+               startActivity(intent);
+           }
+       });
         loginActivityGettingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -22,7 +22,7 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
     private Button loginSignupActivityButton;
     private EditText signUpEmailEdittext , signUpPasswordEdittext;
     private FirebaseAuth auth;
-    private Button signupactivitySignupButton;
+    private Button catagoryConsultantbutton,catagoryUserbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +32,30 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
         auth=FirebaseAuth.getInstance();
         signUpEmailEdittext = findViewById(R.id.signUpEmailEdittextId);
         signUpPasswordEdittext=findViewById(R.id.signUpPasswordEdittextId);
-        signupactivitySignupButton = findViewById(R.id.signupactivitySignupButtonid);
-        signupactivitySignupButton.setOnClickListener(this);
         loginSignupActivityButton=findViewById(R.id.loginSignupActivityButtonId);
         loginSignupActivityButton.setOnClickListener(this);
+        catagoryConsultantbutton =findViewById(R.id.signupasConsultantbuttonId);
+        catagoryUserbutton=findViewById(R.id.signupasUserbuttonId);
+        catagoryConsultantbutton.setOnClickListener(this);
+        catagoryUserbutton.setOnClickListener(this);
+
 
     }
 
     @Override
     public void onClick(View view) {
-        if(view.getId()==R.id.signupactivitySignupButtonid)
+        if(view.getId()==R.id.signupasConsultantbuttonId)
         {
             userSignup();
+           Intent intent=new Intent(signup_activity.this,information_setup.class);
+            intent.putExtra("select","consultant");
+            startActivity(intent);
+        }
+        if (view.getId()==R.id.signupasUserbuttonId){
+            userSignup();
+           Intent intent=new Intent(signup_activity.this,information_setup.class);
+            intent.putExtra("select","user");
+            startActivity(intent);
         }
         else if(view.getId()==R.id.loginSignupActivityButtonId){
             Intent intent = new Intent(signup_activity.this,login_activity.class);

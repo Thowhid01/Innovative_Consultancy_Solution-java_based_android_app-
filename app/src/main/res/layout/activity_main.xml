@@ -24,7 +24,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="           INNOVATIVE \n Consultancy Solutions"
+        android:gravity="center"
+        android:text="INNOVATIVE \n Consultancy Solutions"
         android:layout_gravity="center"
         android:textColor="#25593E"
         android:textStyle="bold"

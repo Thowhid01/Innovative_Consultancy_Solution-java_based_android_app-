@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".login_activity">
+    tools:context=".signup_activity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="290sp"
@@ -54,15 +54,26 @@
             android:background="@color/white"
             android:textColorHint="@color/black"/>
         <Button
-            android:id="@+id/signupactivitySignupButtonid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_gravity="center"
             android:backgroundTint="#25593E"
-            android:text=" Sign Up"
+            android:text="Join as Consultant"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:id="@+id/signupasConsultantbuttonId"/>
+        <Button
+            android:id="@+id/signupasUserbuttonId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:backgroundTint="#212F79"
+            android:text="Join ans User"
             android:textSize="17sp"
             android:textColor="@color/white"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
