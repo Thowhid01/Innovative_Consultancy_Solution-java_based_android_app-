@@ -32,7 +32,8 @@ Information information;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information_setup);
         Intent intent=getIntent();
-        String catagory=intent.getStringExtra("select");
+     //   String catagory=intent.getStringExtra("select");
+        String catagory="consultant";
         Toast.makeText(information_setup.this, "catagory : "+catagory, Toast.LENGTH_SHORT).show();
         namedittext=findViewById(R.id.informationsetupedittextnameid);
         phoneedittext=findViewById(R.id.informationsetupedittextphoneid);
@@ -42,9 +43,9 @@ Information information;
         savebutton=findViewById(R.id.informationsetupupdatebuttonid);
         imageuploadbutton=findViewById(R.id.informationsetupprofileimageid);
         //datasetupwithfirebase
-        firebaseDatabase=FirebaseDatabase.getInstance();
+       // firebaseDatabase=FirebaseDatabase.getInstance();
         if(catagory=="consultant"){
-            databaseReference=firebaseDatabase.getReference("consultnt");
+
             information=new Information();
             savebutton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -60,7 +61,7 @@ Information information;
                        Toast.makeText(information_setup.this, "Please Add Some Data ", Toast.LENGTH_SHORT).show();
                    }
                    else {
-                       addDatafirebase(name,date,phone,work_background,bloodgroup,gender);
+                       addDatafirebase(name,date,phone,work_background,bloodgroup,gender,catagory);
                    }
                 }
             });
@@ -68,25 +69,16 @@ Information information;
 
     }
 
-    private void addDatafirebase(String name, String date, String phone, String work_background, String bloodgroup, String gender) {
+    private void addDatafirebase(String name, String date, String phone, String work_background, String bloodgroup, String gender,String catagory) {
         information.setName(name);
         information.setDate(date);
         information.setPhone(phone);
         information.setWorkbackground(work_background);
         information.setBloodgroup(bloodgroup);
         information.setGender(gender);
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                databaseReference.setValue(information);
-                Toast.makeText(information_setup.this, "Data Added Succesfully", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(information_setup.this, "Failed to Add Data", Toast.LENGTH_SHORT).show();
-            }
-        });
+        databaseReference=FirebaseDatabase.getInstance().getReference(catagory);
+        String key=databaseReference.push().getKey();
+        databaseReference.child(key).setValue(information);
     }
 
 
