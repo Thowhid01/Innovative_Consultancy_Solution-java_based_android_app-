@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "486174064663",
-    "project_id": "innovative-consultancy-882f5",
-    "storage_bucket": "innovative-consultancy-882f5.appspot.com"
+    "project_number": "140974144738",
+    "firebase_url": "https://innovativeconsultancysol-5082f-default-rtdb.firebaseio.com",
+    "project_id": "innovativeconsultancysol-5082f",
+    "storage_bucket": "innovativeconsultancysol-5082f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:486174064663:android:f190da54908fefd9bcdc52",
+        "mobilesdk_app_id": "1:140974144738:android:3fe091f01b99dde0d8b2bb",
         "android_client_info": {
           "package_name": "com.efty.innovativeconsultancysolutions"
         }
       },
       "oauth_client": [
         {
-          "client_id": "486174064663-krrbbi4ctp5fvrjea8tfmv4rrl4nk9pr.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.efty.innovativeconsultancysolutions",
-            "certificate_hash": "bcb4c889be7c558c961fd35b333593d0211042dc"
-          }
-        },
-        {
-          "client_id": "486174064663-saddtm1c5tqdgk3d1h2dqnmlrb4p0nc4.apps.googleusercontent.com",
+          "client_id": "140974144738-uv3qm4nu7771ffh0ckd42h0k09n9sj14.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBNE4YbMswxy00pmw0mIv13XHQoxb9nOfs"
+          "current_key": "AIzaSyBgodsmjc4DjKa7X_mAnOTMwpzmUaXdSBo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "486174064663-saddtm1c5tqdgk3d1h2dqnmlrb4p0nc4.apps.googleusercontent.com",
+              "client_id": "140974144738-uv3qm4nu7771ffh0ckd42h0k09n9sj14.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
