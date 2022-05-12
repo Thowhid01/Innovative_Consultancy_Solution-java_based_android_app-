@@ -1,108 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".signup_activity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="290sp"
-        android:background="#CFDAD5"
-        android:layout_marginBottom="40dp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="40dp"
-        >
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="290sp"
+           android:background="#CFDAD5"
+           android:layout_marginBottom="40dp"/>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:layout_margin="40dp"
+           >
 
-            android:text="Email Address"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
-        <EditText
-            android:id="@+id/signUpEmailEdittextId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:gravity="center"
-            android:layout_margin="5dp"
-            android:background="@color/white"
-            android:textColorHint="@color/black"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
 
-            android:text="Password"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
-        <EditText
-            android:inputType="textPassword"
-            android:id="@+id/signUpPasswordEdittextId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:gravity="center"
-            android:layout_margin="5dp"
+               android:text="Email Address"
+               android:textStyle="bold"
+               android:textSize="20sp"
+               android:textColor="@color/black"/>
+           <EditText
+               android:id="@+id/signUpEmailEdittextId"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:hint="Email"
+               android:gravity="center"
+               android:layout_margin="5dp"
+               android:background="@color/white"
+               android:textColorHint="@color/black"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
 
-            android:background="@color/white"
-            android:textColorHint="@color/black"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_gravity="center"
-            android:backgroundTint="#25593E"
-            android:text="Join as Consultant"
-            android:textSize="16sp"
-            android:textColor="@color/white"
-            android:id="@+id/signupasConsultantbuttonId"/>
-        <Button
-            android:id="@+id/signupasUserbuttonId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_gravity="center"
-            android:backgroundTint="#212F79"
-            android:text="Join ans User"
-            android:textSize="17sp"
-            android:textColor="@color/white"/>
+               android:text="Password"
+               android:textStyle="bold"
+               android:textSize="20sp"
+               android:textColor="@color/black"/>
+           <EditText
+               android:inputType="textPassword"
+               android:id="@+id/signUpPasswordEdittextId"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:hint="Password"
+               android:gravity="center"
+               android:layout_margin="5dp"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="10"
-            android:gravity="center"
-            >
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Already Have an Account?"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:layout_marginLeft="40dp"
-                android:layout_weight="6"/>
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:backgroundTint="@color/white"
-                android:text="Login"
-                android:textStyle="bold"
-                android:textColor="#25593E"
-                android:id="@+id/loginSignupActivityButtonId"
-                />
+               android:background="@color/white"
+               android:textColorHint="@color/black"/>
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_margin="10dp"
+               android:layout_gravity="center"
+               android:backgroundTint="#25593E"
+               android:text="Join as Consultant"
+               android:textSize="16sp"
+               android:textColor="@color/white"
+               android:id="@+id/signupasConsultantbuttonId"/>
+           <Button
+               android:id="@+id/signupasUserbuttonId"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_margin="10dp"
+               android:layout_gravity="center"
+               android:backgroundTint="#212F79"
+               android:text="Join ans User"
+               android:textSize="17sp"
+               android:textColor="@color/white"/>
 
-        </LinearLayout>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:weightSum="10"
+               android:gravity="center"
+               >
+               <TextView
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:text="Already Have an Account?"
+                   android:textColor="@color/black"
+                   android:textSize="12sp"
+                   android:layout_marginLeft="40dp"
+                   android:layout_weight="6"/>
+               <Button
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="4"
+                   android:backgroundTint="@color/white"
+                   android:text="Login"
+                   android:textStyle="bold"
+                   android:textColor="#25593E"
+                   android:id="@+id/loginSignupActivityButtonId"
+                   />
 
-    </LinearLayout>
+           </LinearLayout>
 
-</LinearLayout>
+       </LinearLayout>
+
+
+   </LinearLayout>
+</ScrollView>

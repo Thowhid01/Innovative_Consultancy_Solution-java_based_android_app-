@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+
 public class login_activity extends AppCompatActivity implements View.OnClickListener {
     private Button signupLoginactivityButton;
     private Button loginActivityLoginBtn;
@@ -73,12 +74,12 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
             loginActivityPasswordEd.requestFocus();
             return;
         }
-        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+       auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(),"Login successfull",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(login_activity.this,information_setup.class));
+                   // startActivity(new Intent(login_activity.this,information_setup.class));
                 }
                 else {
                     Toast.makeText(getApplicationContext(),"Login not successfull",Toast.LENGTH_SHORT).show();
