@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -12,76 +15,215 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import java.util.UUID;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.util.HashMap;
 
 public class information_setup extends AppCompatActivity {
-private EditText namedittext,phoneedittext,birthdateedittext,workbackgroundedittext,bloodgroupedittext;
-private RadioGroup radioGroup;
-private RadioButton genderradiobutton;
-private Button savebutton,imageuploadbutton;
-FirebaseDatabase firebaseDatabase;
-DatabaseReference databaseReference;
-Information information;
+    private EditText name,phone,date,workbackground,blood;
+    RadioGroup radioGroup;
+    RadioButton radioButton;
+    private Button updateBtn,imageUploadBtn;
+    private Uri filePath;
+    private final int PICK_IMAGE_REQUEST = 22;
+    FirebaseStorage storage;
+    StorageReference storageReference;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information_setup);
         Intent intent=getIntent();
-     //   String catagory=intent.getStringExtra("select");
-        String catagory="consultant";
-        Toast.makeText(information_setup.this, "catagory : "+catagory, Toast.LENGTH_SHORT).show();
-        namedittext=findViewById(R.id.informationsetupedittextnameid);
-        phoneedittext=findViewById(R.id.informationsetupedittextphoneid);
-        birthdateedittext=findViewById(R.id.informationsetupedittextdateid);
-        workbackgroundedittext=findViewById(R.id.informationsetupedittextbloodgroupid);
-        radioGroup=findViewById(R.id.informationsetuperadiogroupid);
-        savebutton=findViewById(R.id.informationsetupupdatebuttonid);
-        imageuploadbutton=findViewById(R.id.informationsetupprofileimageid);
-        //datasetupwithfirebase
-       // firebaseDatabase=FirebaseDatabase.getInstance();
-        if(catagory=="consultant"){
+       Integer catagory= intent.getIntExtra("select",0);
+       updateBtn=findViewById(R.id.informationsetupupdatebuttonid);
+       imageUploadBtn=findViewById(R.id.informationsetupuploadimagebuttonid);
+       radioGroup=findViewById(R.id.informationsetradiogenderid);
+       name=findViewById(R.id.informationsetupedittextnameid);
+       phone=findViewById(R.id.informationsetupedittextphoneid);
+       date=findViewById(R.id.informationsetupedittextdateid);
+       workbackground=findViewById(R.id.informationsetupedittextworkbackgroundid);
+       blood=findViewById(R.id.informationsetupedittextbloodgroupid);
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+        imageUploadBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SelectImage();
+            }
+        });
+        
+       updateBtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
 
-            information=new Information();
-            savebutton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String name=namedittext.getText().toString();
-                    String phone=phoneedittext.getText().toString();
-                    String date=birthdateedittext.getText().toString();
-                    String work_background=workbackgroundedittext.getText().toString();
-                   String gender="male";
-                   String bloodgroup=bloodgroupedittext.getText().toString();
-                   if (TextUtils.isEmpty(name)&&TextUtils.isEmpty(phone)&&TextUtils.isEmpty(date)&&TextUtils.isEmpty(work_background)
-                           &&TextUtils.isEmpty(gender)&&TextUtils.isEmpty(bloodgroup)){
-                       Toast.makeText(information_setup.this, "Please Add Some Data ", Toast.LENGTH_SHORT).show();
-                   }
-                   else {
-                       addDatafirebase(name,date,phone,work_background,bloodgroup,gender,catagory);
-                   }
-                }
-            });
+               int selectedID = radioGroup.getCheckedRadioButtonId();
+               radioButton = findViewById(selectedID);
+               try{
+               String na=name.getText().toString();
+               String ph=phone.getText().toString();
+               String da=date.getText().toString();
+               String work=workbackground.getText().toString();
+               String bl=blood.getText().toString();
+               String gender=radioButton.getText().toString();
+               HashMap<String,Object> hashMap=new HashMap<>();
+               hashMap.put("name",na);
+               hashMap.put("phone",ph);
+               hashMap.put("date",da);
+               hashMap.put("workbackground",work);
+               hashMap.put("bloodgroup",bl);
+               hashMap.put("gender",gender);
+
+
+                  try{
+                      if(catagory==1){
+                          FirebaseDatabase.getInstance().getReference().child("Consultant").push().setValue(hashMap);
+                          uploadImage();
+                          Toast.makeText(information_setup.this, "Data added as a consultant successfully!!"+selectedID, Toast.LENGTH_SHORT).show();
+                      }
+                      else if(catagory==2){
+                          FirebaseDatabase.getInstance().getReference().child("User").push().setValue(hashMap);
+                          uploadImage();
+                          Toast.makeText(information_setup.this, "Data added as a user successfully!!", Toast.LENGTH_SHORT).show();
+                      }
+                      else {
+                          Toast.makeText(information_setup.this, "Something went to wrong!!", Toast.LENGTH_SHORT).show();
+                      }
+                  }catch (Exception e){
+                      Toast.makeText(information_setup.this, "Something went to wrong : "+e, Toast.LENGTH_SHORT).show();
+                  }
+
+               }
+               catch (Exception e){
+
+                   Toast.makeText(information_setup.this, "Something went to wrong : "+e, Toast.LENGTH_SHORT).show();
+               }
+
+           }
+       });
+
+
+    }
+
+
+
+    private void SelectImage() {
+
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(
+                Intent.createChooser(
+                        intent,
+                        "Select Image from here..."),
+                PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode,
+                                    int resultCode,
+                                    Intent data)
+    {
+
+        super.onActivityResult(requestCode,
+                resultCode,
+                data);
+
+        if (requestCode == PICK_IMAGE_REQUEST
+                && resultCode == RESULT_OK
+                && data != null
+                && data.getData() != null) {
+
+            filePath = data.getData();
+            try {
+
+
+                Bitmap bitmap = MediaStore
+                        .Images
+                        .Media
+                        .getBitmap(
+                                getContentResolver(),
+                                filePath);
+
+            }
+
+            catch (Exception e) {
+                Toast.makeText(information_setup.this, "Image Problem : "+e, Toast.LENGTH_SHORT).show();
+            }
         }
+    }
+
+    private void uploadImage() {
+        if (filePath != null) {
+
+
+
+            StorageReference ref
+                    = storageReference
+                    .child(
+                            "images/"
+                                    + UUID.randomUUID().toString());
+            ref.putFile(filePath)
+                    .addOnSuccessListener(
+                            new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+                                @Override
+                                public void onSuccess(
+                                        UploadTask.TaskSnapshot taskSnapshot)
+                                {
+
+
+                                    Toast
+                                            .makeText(information_setup.this,
+                                                    "Image Uploaded!!",
+                                                    Toast.LENGTH_SHORT)
+                                            .show();
+                                }
+                            })
+
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e)
+                        {
+
+                            Toast
+                                    .makeText(information_setup.this,
+                                            "Failed " + e.getMessage(),
+                                            Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+                    })
+                    .addOnProgressListener(
+                            new OnProgressListener<UploadTask.TaskSnapshot>() {
+
+                                @Override
+                                public void onProgress(
+                                        UploadTask.TaskSnapshot taskSnapshot)
+                                {
+                                    double progress
+                                            = (100.0
+                                            * taskSnapshot.getBytesTransferred()
+                                            / taskSnapshot.getTotalByteCount());
+
+                                }
+                            });
+        }
+    }
 
     }
 
-    private void addDatafirebase(String name, String date, String phone, String work_background, String bloodgroup, String gender,String catagory) {
-        information.setName(name);
-        information.setDate(date);
-        information.setPhone(phone);
-        information.setWorkbackground(work_background);
-        information.setBloodgroup(bloodgroup);
-        information.setGender(gender);
-        databaseReference=FirebaseDatabase.getInstance().getReference(catagory);
-        String key=databaseReference.push().getKey();
-        databaseReference.child(key).setValue(information);
-    }
 
 
-}
 
 

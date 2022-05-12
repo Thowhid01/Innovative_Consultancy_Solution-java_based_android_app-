@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -23,7 +24,7 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
     private EditText signUpEmailEdittext , signUpPasswordEdittext;
     private FirebaseAuth auth;
     private Button catagoryConsultantbutton,catagoryUserbutton;
-
+    int num;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -44,23 +45,30 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        if(view.getId()==R.id.signupasConsultantbuttonId)
-        {
-            userSignup();
-           Intent intent=new Intent(signup_activity.this,information_setup.class);
+       try{
+           if(view.getId()==R.id.signupasConsultantbuttonId)
+           {
+               userSignup();
+        /*   Intent intent=new Intent(signup_activity.this,information_setup.class);
             intent.putExtra("select","consultant");
-            startActivity(intent);
-        }
-        if (view.getId()==R.id.signupasUserbuttonId){
-            userSignup();
-           Intent intent=new Intent(signup_activity.this,information_setup.class);
+            startActivity(intent);*/
+               num=1;
+           }
+           if (view.getId()==R.id.signupasUserbuttonId){
+               userSignup();
+        /*   Intent intent=new Intent(signup_activity.this,information_setup.class);
             intent.putExtra("select","user");
-            startActivity(intent);
-        }
-        else if(view.getId()==R.id.loginSignupActivityButtonId){
-            Intent intent = new Intent(signup_activity.this,login_activity.class);
-            startActivity(intent);
-        }
+            startActivity(intent);*/
+               num=2;
+           }
+           else if(view.getId()==R.id.loginSignupActivityButtonId){
+               Intent intent = new Intent(signup_activity.this,login_activity.class);
+               startActivity(intent);
+           }
+       }
+       catch (Exception e){
+         //  Toast.makeText(signup_activity.this, "Enter the values", Toast.LENGTH_SHORT).show();
+       }
     }
 
     private void userSignup() {
@@ -88,11 +96,25 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(signup_activity.this,"Sign Up Successful",Toast.LENGTH_SHORT).show();
+                    if(num==1){
+                        Intent intent=new Intent(signup_activity.this,information_setup.class);
+                        intent.putExtra("select",num);
+                        startActivity(intent);
+
+                    }
+                    else if(num==2){
+                        Intent intent=new Intent(signup_activity.this,information_setup.class);
+                        intent.putExtra("select",num);
+                        startActivity(intent);
+
+                    }
                 }
-                else{
-                    Toast.makeText(signup_activity.this,"Sign Up NOT Successful!!! Try Again.",Toast.LENGTH_SHORT).show();
+                else {
+                    Toast.makeText(signup_activity.this,"Sign Up NOT Successful!!! Try Again."+task.getException(),Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
+
     }
 }
