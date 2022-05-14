@@ -79,7 +79,7 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(),"Login successfull",Toast.LENGTH_SHORT).show();
-                   // startActivity(new Intent(login_activity.this,information_setup.class));
+                    startActivity(new Intent(login_activity.this,UserHomeActivity.class));
                 }
                 else {
                     Toast.makeText(getApplicationContext(),"Login not successfull",Toast.LENGTH_SHORT).show();

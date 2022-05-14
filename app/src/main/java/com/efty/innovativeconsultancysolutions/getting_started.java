@@ -10,7 +10,7 @@ import android.widget.Button;
 public class getting_started extends AppCompatActivity {
     private Button loginActivityGettingButton;
     private Button signupgettingStartActivityButton;
-
+    private Button facebookSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,14 @@ public class getting_started extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getting_started.this,login_activity.class);
                 startActivity(intent);
+            }
+        });
+
+        facebookSignUp=findViewById(R.id.facebookSignupgettingStartActivityButtonid);
+        facebookSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getting_started.this,UserHomeActivity.class));
             }
         });
     }
