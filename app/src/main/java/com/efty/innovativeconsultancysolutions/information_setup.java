@@ -31,7 +31,7 @@ import com.google.firebase.storage.UploadTask;
 import java.util.HashMap;
 
 public class information_setup extends AppCompatActivity {
-    private EditText name,phone,date,workbackground,blood;
+    private EditText name,phone,date,workbackground,blood,about;
     RadioGroup radioGroup;
     RadioButton radioButton;
     private Button updateBtn,imageUploadBtn;
@@ -56,6 +56,7 @@ public class information_setup extends AppCompatActivity {
        date=findViewById(R.id.informationsetupedittextdateid);
        workbackground=findViewById(R.id.informationsetupedittextworkbackgroundid);
        blood=findViewById(R.id.informationsetupedittextbloodgroupid);
+       about=findViewById(R.id.informationsetupedittextaboutid);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         imageUploadBtn.setOnClickListener(new View.OnClickListener() {
@@ -78,13 +79,14 @@ public class information_setup extends AppCompatActivity {
                String work=workbackground.getText().toString();
                String bl=blood.getText().toString();
                String gender=radioButton.getText().toString();
-
+               String ab=about.getText().toString();
                hashMap.put("name",na);
                hashMap.put("phone",ph);
                hashMap.put("date",da);
                hashMap.put("workbackground",work);
                hashMap.put("bloodgroup",bl);
                hashMap.put("gender",gender);
+               hashMap.put("about",ab);
               // hashMap.put("image","");
 
 
@@ -193,16 +195,25 @@ public class information_setup extends AppCompatActivity {
                                 public void onSuccess(
                                         UploadTask.TaskSnapshot taskSnapshot)
                                 {
+                                    ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                        @Override
+                                        public void onSuccess(Uri uri) {
+
+                                            imageUrl=uri.toString();
+
+                                            if(catagory==1){
+                                                hashMap.put("image",imageUrl);
+                                                FirebaseDatabase.getInstance().getReference().child("Consultant").push().setValue(hashMap);
+                                            }
+                                            else if(catagory==2){
+                                                hashMap.put("image",imageUrl);
+                                                FirebaseDatabase.getInstance().getReference().child("User").push().setValue(hashMap);
+                                            }
+
+                                        }
+                                    });
 
 
-                                    if(catagory==1){
-                                        hashMap.put("image",imageUrl);
-                                        FirebaseDatabase.getInstance().getReference().child("Consultant").push().setValue(hashMap);
-                                    }
-                                    else if(catagory==2){
-                                        hashMap.put("image",imageUrl);
-                                        FirebaseDatabase.getInstance().getReference().child("User").push().setValue(hashMap);
-                                    }
 
                                     Toast
                                             .makeText(information_setup.this,

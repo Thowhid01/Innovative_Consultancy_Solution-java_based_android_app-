@@ -29,7 +29,7 @@ public class UserHomeActivity extends AppCompatActivity {
 */
         recyclerView=(RecyclerView) findViewById(R.id.expertDetailsRecylerVtewId);
         MyListAdapter adapter=new MyListAdapter(listItemData,getApplicationContext());
-        //recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
@@ -40,7 +40,7 @@ public class UserHomeActivity extends AppCompatActivity {
                     listItemData.clear();
                     for(DataSnapshot snapshot1:snapshot.getChildren()){
                         Consultant consultant=snapshot1.getValue(Consultant.class);
-                        listItemData.add(new Consultant(consultant.getDate(),consultant.getName(),consultant.getPhone()));
+                        listItemData.add(new Consultant(consultant.getWorkbackground(),consultant.getName(),consultant.getPhone(),consultant.getImage()));
 
 
                     }

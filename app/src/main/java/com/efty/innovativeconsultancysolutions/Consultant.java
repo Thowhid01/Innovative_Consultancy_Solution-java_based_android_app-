@@ -1,14 +1,16 @@
 package com.efty.innovativeconsultancysolutions;
 
 public class Consultant {
-    private String date;
+    private String workbackground;
     private String name;
     private  String phone;
+    private String image;
 
-    public Consultant(String date, String name, String phone) {
-        this.date = date;
+    public Consultant(String workbackground, String name, String phone,String image) {
+        this.workbackground = workbackground;
         this.name = name;
         this.phone = phone;
+        this.image=image;
     }
 
     public Consultant(String name, String phone) {
@@ -19,12 +21,12 @@ public class Consultant {
     public Consultant() {
     }
 
-    public String getDate() {
-        return date;
+    public String getWorkbackground() {
+        return workbackground;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setWorkbackground(String workbackground) {
+        this.workbackground = workbackground;
     }
 
     public String getName() {
@@ -41,5 +43,13 @@ public class Consultant {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
