@@ -1,6 +1,7 @@
 package com.efty.innovativeconsultancysolutions;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
 
     private ArrayList<Consultant> listData;
     private Context context;
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -53,15 +55,26 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         final Consultant listItemData=listData.get(position);
         Picasso.get().load(listData.get(position).getImage()).into(holder.imageView);
-      //  holder.imageView.setText(listData.get(position).getDate());
         holder.nameTv.setText(listData.get(position).getName());
         holder.phoneTv.setText(listData.get(position).getWorkbackground()+"  "+listData.get(position).getPhone());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(),"Hello : "+holder.nameTv.getText(),Toast.LENGTH_SHORT).show();
+               Intent intent=new Intent(view.getContext(),OneConsultant.class);
+                intent.putExtra("about",listData.get(holder.getAdapterPosition()).getAbout());
+                intent.putExtra("bloodgroup",listData.get(holder.getAdapterPosition()).getBloodgroup());
+                intent.putExtra("date",listData.get(holder.getAdapterPosition()).getDate());
+                intent.putExtra("gender",listData.get(holder.getAdapterPosition()).getGender());
+                intent.putExtra("image",listData.get(holder.getAdapterPosition()).getImage());
+                intent.putExtra("name",listData.get(holder.getAdapterPosition()).getName());
+                intent.putExtra("phone",listData.get(holder.getAdapterPosition()).getPhone());
+                intent.putExtra("workbackground",listData.get(holder.getAdapterPosition()).getWorkbackground());
+                view.getContext().startActivity(intent);
+
+
             }
         });
 
