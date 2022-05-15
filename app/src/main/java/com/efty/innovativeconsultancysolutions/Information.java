@@ -2,14 +2,15 @@ package com.efty.innovativeconsultancysolutions;
 
 
 public class Information {
-    String name,date,phone,workbackground,bloodgroup;
+    String name,date,phone,workbackground,bloodgroup,gender;
 
-    public Information(String name, String date, String phone, String workbackground, String bloodgroup) {
+    public Information(String name, String date, String phone, String workbackground, String bloodgroup,String gender) {
         this.name = name;
         this.date = date;
         this.phone = phone;
         this.workbackground = workbackground;
         this.bloodgroup = bloodgroup;
+        this.gender=gender;
 
     }
 
@@ -53,7 +54,13 @@ public class Information {
         this.bloodgroup = bloodgroup;
     }
 
+    public String getGender() {
+        return gender;
+    }
 
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
     public Information() {
 

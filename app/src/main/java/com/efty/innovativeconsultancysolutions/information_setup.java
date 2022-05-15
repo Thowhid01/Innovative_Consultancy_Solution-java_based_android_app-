@@ -31,7 +31,7 @@ import com.google.firebase.storage.UploadTask;
 import java.util.HashMap;
 
 public class information_setup extends AppCompatActivity {
-    private EditText name,phone,date,workbackground,blood;
+    private EditText name,phone,date,workbackground,blood,about;
     RadioGroup radioGroup;
     RadioButton radioButton;
     private Button updateBtn,imageUploadBtn;
@@ -39,14 +39,15 @@ public class information_setup extends AppCompatActivity {
     private final int PICK_IMAGE_REQUEST = 22;
     FirebaseStorage storage;
     StorageReference storageReference;
-
-
+    String imageUrl;
+    Integer catagory;
+    HashMap<String,Object> hashMap=new HashMap<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information_setup);
         Intent intent=getIntent();
-       Integer catagory= intent.getIntExtra("select",0);
+       catagory= intent.getIntExtra("select",0);
        updateBtn=findViewById(R.id.informationsetupupdatebuttonid);
        imageUploadBtn=findViewById(R.id.informationsetupuploadimagebuttonid);
        radioGroup=findViewById(R.id.informationsetradiogenderid);
@@ -55,6 +56,7 @@ public class information_setup extends AppCompatActivity {
        date=findViewById(R.id.informationsetupedittextdateid);
        workbackground=findViewById(R.id.informationsetupedittextworkbackgroundid);
        blood=findViewById(R.id.informationsetupedittextbloodgroupid);
+       about=findViewById(R.id.informationsetupedittextaboutid);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         imageUploadBtn.setOnClickListener(new View.OnClickListener() {
@@ -77,24 +79,32 @@ public class information_setup extends AppCompatActivity {
                String work=workbackground.getText().toString();
                String bl=blood.getText().toString();
                String gender=radioButton.getText().toString();
-               HashMap<String,Object> hashMap=new HashMap<>();
+               String ab=about.getText().toString();
                hashMap.put("name",na);
                hashMap.put("phone",ph);
                hashMap.put("date",da);
                hashMap.put("workbackground",work);
                hashMap.put("bloodgroup",bl);
                hashMap.put("gender",gender);
+               hashMap.put("about",ab);
+              // hashMap.put("image","");
 
 
                   try{
                       if(catagory==1){
-                          FirebaseDatabase.getInstance().getReference().child("Consultant").push().setValue(hashMap);
                           uploadImage();
-                          Toast.makeText(information_setup.this, "Data added as a consultant successfully!!"+selectedID, Toast.LENGTH_SHORT).show();
+                     //     hashMap.put("image",imageUrl);
+
+                         // FirebaseDatabase.getInstance().getReference().child("Consultant").push().setValue(hashMap);
+
+                          Toast.makeText(information_setup.this, "Data added as a consultant successfully!!", Toast.LENGTH_SHORT).show();
                       }
                       else if(catagory==2){
-                          FirebaseDatabase.getInstance().getReference().child("User").push().setValue(hashMap);
                           uploadImage();
+                       //   hashMap.put("image",imageUrl);
+
+                        //  FirebaseDatabase.getInstance().getReference().child("User").push().setValue(hashMap);
+
                           Toast.makeText(information_setup.this, "Data added as a user successfully!!", Toast.LENGTH_SHORT).show();
                       }
                       else {
@@ -146,6 +156,7 @@ public class information_setup extends AppCompatActivity {
                 && data.getData() != null) {
 
             filePath = data.getData();
+            imageUrl=data.getData().getPath().toString();
             try {
 
 
@@ -174,6 +185,8 @@ public class information_setup extends AppCompatActivity {
                     .child(
                             "images/"
                                     + UUID.randomUUID().toString());
+           // imageUrl="gs://innovative-consultancy-882f5.appspot.com/images/";//+UUID.randomUUID().toString();
+            //gs://innovative-consultancy-882f5.appspot.com/images/ccd32a0c-aaee-4e17-9a12-aa0c5ffe4ec4
             ref.putFile(filePath)
                     .addOnSuccessListener(
                             new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -182,11 +195,29 @@ public class information_setup extends AppCompatActivity {
                                 public void onSuccess(
                                         UploadTask.TaskSnapshot taskSnapshot)
                                 {
+                                    ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                        @Override
+                                        public void onSuccess(Uri uri) {
+
+                                            imageUrl=uri.toString();
+
+                                            if(catagory==1){
+                                                hashMap.put("image",imageUrl);
+                                                FirebaseDatabase.getInstance().getReference().child("Consultant").push().setValue(hashMap);
+                                            }
+                                            else if(catagory==2){
+                                                hashMap.put("image",imageUrl);
+                                                FirebaseDatabase.getInstance().getReference().child("User").push().setValue(hashMap);
+                                            }
+
+                                        }
+                                    });
+
 
 
                                     Toast
                                             .makeText(information_setup.this,
-                                                    "Image Uploaded!!",
+                                                    "Image Uploaded!!"+imageUrl,
                                                     Toast.LENGTH_SHORT)
                                             .show();
                                 }
