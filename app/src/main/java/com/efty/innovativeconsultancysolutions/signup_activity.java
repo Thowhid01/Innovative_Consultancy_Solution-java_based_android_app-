@@ -99,12 +99,14 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
                     if(num==1){
                         Intent intent=new Intent(signup_activity.this,information_setup.class);
                         intent.putExtra("select",num);
+                        intent.putExtra("email",signUpEmailEdittext.getText().toString().trim());
                         startActivity(intent);
 
                     }
                     else if(num==2){
                         Intent intent=new Intent(signup_activity.this,information_setup.class);
                         intent.putExtra("select",num);
+                        intent.putExtra("email",signUpEmailEdittext.getText().toString().trim());
                         startActivity(intent);
 
                     }

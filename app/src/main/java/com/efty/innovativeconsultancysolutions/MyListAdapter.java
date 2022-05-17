@@ -72,6 +72,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
                 intent.putExtra("name",listData.get(holder.getAdapterPosition()).getName());
                 intent.putExtra("phone",listData.get(holder.getAdapterPosition()).getPhone());
                 intent.putExtra("workbackground",listData.get(holder.getAdapterPosition()).getWorkbackground());
+                intent.putExtra("email",listData.get(holder.getAdapterPosition()).getEmail());
                 view.getContext().startActivity(intent);
 
 
