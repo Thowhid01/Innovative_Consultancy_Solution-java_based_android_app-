@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InnovativeConsultancySolutions">
         <activity
+            android:name=".UserProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".OneConsultant"
             android:exported="false" />
         <activity

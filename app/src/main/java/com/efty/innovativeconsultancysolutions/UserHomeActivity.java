@@ -46,7 +46,7 @@ public class UserHomeActivity extends AppCompatActivity {
                     listItemData.clear();
                     for(DataSnapshot snapshot1:snapshot.getChildren()){
                         Consultant consultant=snapshot1.getValue(Consultant.class);
-                        listItemData.add(new Consultant(consultant.getWorkbackground(),consultant.getName(),consultant.getPhone(),consultant.getImage(),consultant.getAbout(),consultant.getBloodgroup(),consultant.getDate(),consultant.getGender()));
+                        listItemData.add(new Consultant(consultant.getWorkbackground(),consultant.getName(),consultant.getPhone(),consultant.getImage(),consultant.getAbout(),consultant.getBloodgroup(),consultant.getDate(),consultant.getGender(),consultant.getEmail()));
 
                     }
                     adapter.notifyDataSetChanged();

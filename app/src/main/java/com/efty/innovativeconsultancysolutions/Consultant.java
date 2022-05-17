@@ -9,6 +9,7 @@ public class Consultant {
     private String bloodgroup;
     private String date;
     private String gender;
+    private String email;
 
     public Consultant(String workbackground, String name, String phone,String image) {
         this.workbackground = workbackground;
@@ -26,6 +27,18 @@ public class Consultant {
         this.bloodgroup = bloodgroup;
         this.date = date;
         this.gender = gender;
+    }
+
+    public Consultant(String workbackground, String name, String phone, String image, String about, String bloodgroup, String date, String gender, String email) {
+        this.workbackground = workbackground;
+        this.name = name;
+        this.phone = phone;
+        this.image = image;
+        this.about = about;
+        this.bloodgroup = bloodgroup;
+        this.date = date;
+        this.gender = gender;
+        this.email = email;
     }
 
     public String getAbout() {
@@ -98,5 +111,13 @@ public class Consultant {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
