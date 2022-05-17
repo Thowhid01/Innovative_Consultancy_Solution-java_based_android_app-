@@ -31,7 +31,7 @@ import com.google.firebase.storage.UploadTask;
 import java.util.HashMap;
 
 public class information_setup extends AppCompatActivity {
-    private EditText name,phone,date,workbackground,blood,about;
+    private EditText name,phone,date,workbackground,blood,about,email;
     RadioGroup radioGroup;
     RadioButton radioButton;
     private Button updateBtn,imageUploadBtn;
@@ -53,6 +53,8 @@ public class information_setup extends AppCompatActivity {
        radioGroup=findViewById(R.id.informationsetradiogenderid);
        name=findViewById(R.id.informationsetupedittextnameid);
        phone=findViewById(R.id.informationsetupedittextphoneid);
+       email=findViewById(R.id.informationsetupedittextemailid);
+       email.setText(intent.getStringExtra("email"));
        date=findViewById(R.id.informationsetupedittextdateid);
        workbackground=findViewById(R.id.informationsetupedittextworkbackgroundid);
        blood=findViewById(R.id.informationsetupedittextbloodgroupid);
@@ -80,6 +82,7 @@ public class information_setup extends AppCompatActivity {
                String bl=blood.getText().toString();
                String gender=radioButton.getText().toString();
                String ab=about.getText().toString();
+               String em= intent.getStringExtra("email");
                hashMap.put("name",na);
                hashMap.put("phone",ph);
                hashMap.put("date",da);
@@ -87,6 +90,7 @@ public class information_setup extends AppCompatActivity {
                hashMap.put("bloodgroup",bl);
                hashMap.put("gender",gender);
                hashMap.put("about",ab);
+               hashMap.put("email",em);
               // hashMap.put("image","");
 
 

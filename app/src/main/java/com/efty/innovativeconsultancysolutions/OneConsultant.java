@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 
 public class OneConsultant extends AppCompatActivity {
 
-    private TextView nameTv,expertTv,phoneTv,aboutNameTv,aboutTv,genderTv,bloodTv,dateTv;
+    private TextView nameTv,expertTv,phoneTv,aboutNameTv,aboutTv,genderTv,bloodTv,dateTv,emailTv;
     private ImageView imageView;
     private Button button;
 
@@ -25,6 +25,7 @@ public class OneConsultant extends AppCompatActivity {
         nameTv=findViewById(R.id.nameOneConsultantTvId);
         phoneTv=findViewById(R.id.phoneOneConsultantTvId);
         expertTv=findViewById(R.id.expertOneConsultantTvId);
+        emailTv=findViewById(R.id.emailOneConsultantTvId);
         aboutNameTv=findViewById(R.id.aboutNameOneConsaluntantTvId);
         aboutTv=findViewById(R.id.aboutDetailsoneConsultantTvId);
         genderTv=findViewById(R.id.genderOneConsultantTvId);
@@ -34,15 +35,16 @@ public class OneConsultant extends AppCompatActivity {
         button=findViewById(R.id.backToHomeOneConsultantBtnId);
 
         Intent intent=getIntent();
-        String name,phone,expert,aboutName,about,gender,blood,date,image;
+        String name,phone,expert,aboutName,about,gender,blood,date,image,email;
         name=intent.getStringExtra("name");
         phone=intent.getStringExtra("phone");
+        email=intent.getStringExtra("email");
         expert=intent.getStringExtra("workbackground");
         aboutName="About "+name;
         about=intent.getStringExtra("about");
-        gender="Gender "+intent.getStringExtra("gender");
-        blood="Blood Group "+intent.getStringExtra("bloodgroup");
-        date="Date of Birth "+intent.getStringExtra("date");
+        gender="Gender          : "+intent.getStringExtra("gender");
+        blood= "Blood Group     : "+intent.getStringExtra("bloodgroup");
+        date=  "Date of Birth   : "+intent.getStringExtra("date");
         image=intent.getStringExtra("image");
         nameTv.setText(name);
         phoneTv.setText(phone);
@@ -52,6 +54,7 @@ public class OneConsultant extends AppCompatActivity {
         genderTv.setText(gender);
         bloodTv.setText(blood);
         dateTv.setText(date);
+        emailTv.setText(email);
         Picasso.get().load(image).into(imageView);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
