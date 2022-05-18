@@ -59,8 +59,14 @@ public class OneConsultant extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(OneConsultant.this,UserHomeActivity.class);
-                startActivity(i);
+                Intent i=new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                String subject="Mohammad Sakib";
+                String body="Feel free to ask any question.";
+                intent.putExtra(Intent.EXTRA_SUBJECT,subject);
+                intent.putExtra(Intent.EXTRA_TEXT,body);
+
+                startActivity(Intent.createChooser(i,"Share with your Friend"));
             }
         });
 

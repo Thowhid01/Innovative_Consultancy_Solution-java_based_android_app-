@@ -37,6 +37,35 @@
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            >
+            <Button
+                android:id="@+id/blogOneConsultantTvId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:text="Blog"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#25593E"
+                />
+            <Button
+                android:id="@+id/vedioOneConsultantTvId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:text="Vedio"
+                android:backgroundTint="#25593E"
+                />
+
+
+        </LinearLayout>
+
 
 
            <LinearLayout
@@ -161,8 +190,9 @@
                     android:id="@+id/backToHomeOneConsultantBtnId"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Back to home"
+                    android:text="Hire Me"
                     android:textStyle="bold"
+                    android:backgroundTint="#25593E"
                     />
             </androidx.cardview.widget.CardView>
         </LinearLayout>
