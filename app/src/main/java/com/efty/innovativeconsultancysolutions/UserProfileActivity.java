@@ -4,7 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,17 +20,22 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
 public class UserProfileActivity extends AppCompatActivity {
 
     private ImageView imageUserImageView;
     private TextView nameUserTv,expertUserTv,phoneUserTv,emailUserTv,aboutNameUserTv,aboutDetailsUserTv,genderUserTv;
     private TextView bloodUserTv,dateOfBirthUserTv;
     private Button backToHomeUserBtn;
+    String email;
+    ArrayList<User> userArrayList=new ArrayList<User>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+       // this.setTitle("Hi User");
 
         imageUserImageView=findViewById(R.id.imageUserImageViewid);
         nameUserTv=findViewById(R.id.nameUserTvId);
@@ -39,31 +48,29 @@ public class UserProfileActivity extends AppCompatActivity {
         bloodUserTv=findViewById(R.id.bloodUserTvId);
         dateOfBirthUserTv=findViewById(R.id.dateOfBirthUserTvId);
         backToHomeUserBtn=findViewById(R.id.backToHomeUserBtnId);
-        Intent intent=getIntent();
-        String email=intent.getStringExtra("email").toString();
-        try{
+
 
             FirebaseDatabase.getInstance().getReference().child("User").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(snapshot.exists()){
-                        for(DataSnapshot snapshot1:snapshot.getChildren()){
-                            User user=snapshot1.getValue(User.class);
-                            if(user.getEmail()==email){
-                                Picasso.get().load(user.getImage()).into(imageUserImageView);
-                                nameUserTv.setText(user.getName());
-                                expertUserTv.setText(user.getWorkbackground());
-                                phoneUserTv.setText(user.getPhone());
-                                emailUserTv.setText(user.getEmail());
-                                aboutNameUserTv.setText("About "+user.getName());
-                                aboutDetailsUserTv.setText(user.getAbout());
-                                genderUserTv.setText("Gender : "+user.getGender());
-                                bloodUserTv.setText("Blood Group : "+user.getBloodgroup());
-                                dateOfBirthUserTv.setText("Date of Birth : "+user.getDate());
-                            }
+                       // Toast.makeText(UserProfileActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                        for (DataSnapshot s:snapshot.getChildren()){
+                            User u=s.getValue(User.class);
+                            Picasso.get().load(u.getImage()).into(imageUserImageView);
+                            nameUserTv.setText(u.getName());
+                            expertUserTv.setText(u.getWorkbackground());
+                            phoneUserTv.setText(u.getPhone());
+                            emailUserTv.setText(u.getEmail());
+                            aboutNameUserTv.setText("About "+u.getName());
+                            aboutDetailsUserTv.setText(u.getAbout());
+                            genderUserTv.setText("Gender   : "+u.getGender());
+                            bloodUserTv.setText("Blood Group : "+u.getBloodgroup());
+                            dateOfBirthUserTv.setText("Date Of Birth : "+u.getDate());
+                            Toast.makeText(UserProfileActivity.this, "Data set in user profile", Toast.LENGTH_SHORT).show();
                         }
-
                     }
+
                 }
 
                 @Override
@@ -72,11 +79,20 @@ public class UserProfileActivity extends AppCompatActivity {
                 }
             });
 
-        }
-        catch (Exception e){
-            Toast.makeText(UserProfileActivity.this, "Problem :"+e, Toast.LENGTH_SHORT).show();
+            backToHomeUserBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+
+                }
+            });
+
+
+
+
+
+
         }
 
 
     }
-}
