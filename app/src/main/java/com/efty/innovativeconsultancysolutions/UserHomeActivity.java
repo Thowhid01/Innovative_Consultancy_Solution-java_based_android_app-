@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -74,7 +75,12 @@ public class UserHomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.profileMenuId:
-                Toast.makeText(UserHomeActivity.this, "Profile selected", Toast.LENGTH_SHORT).show();
+                Intent intent=getIntent();
+                String email=intent.getStringExtra("email");
+                Intent intent1=new Intent(UserHomeActivity.this,UserProfileActivity.class);
+                intent1.putExtra("email",email);
+                startActivity(intent1);
+                Toast.makeText(UserHomeActivity.this, "Profile selected : "+email, Toast.LENGTH_SHORT).show();
                 return true;
             case  R.id.blogMenuId:
                 Toast.makeText(UserHomeActivity.this, "Blog selected", Toast.LENGTH_SHORT).show();
