@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,6 +24,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
     ArrayList<Consultant> listItemData;
     RecyclerView recyclerView;
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,7 @@ public class UserHomeActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+        mAuth=FirebaseAuth.getInstance();
 
         FirebaseDatabase.getInstance().getReference().child("Consultant").addValueEventListener(new ValueEventListener() {
             @Override
@@ -93,6 +96,10 @@ public class UserHomeActivity extends AppCompatActivity {
                 return true;
             case  R.id.signoutMenuId:
                 Toast.makeText(UserHomeActivity.this, "Sign out selected", Toast.LENGTH_SHORT).show();
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                Intent inte=new Intent(UserHomeActivity.this,MainActivity.class);
+                startActivity(inte);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
