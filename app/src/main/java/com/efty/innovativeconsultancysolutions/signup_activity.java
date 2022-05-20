@@ -31,6 +31,8 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         auth=FirebaseAuth.getInstance();
+        this.setTitle("signup_activity");
+
         signUpEmailEdittext = findViewById(R.id.signUpEmailEdittextId);
         signUpPasswordEdittext=findViewById(R.id.signUpPasswordEdittextId);
         loginSignupActivityButton=findViewById(R.id.loginSignupActivityButtonId);

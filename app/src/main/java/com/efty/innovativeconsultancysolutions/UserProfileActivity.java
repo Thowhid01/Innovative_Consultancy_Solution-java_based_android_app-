@@ -36,7 +36,7 @@ public class UserProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
        // this.setTitle("Hi User");
-
+        this.setTitle("UserProfileActivity");
         imageUserImageView=findViewById(R.id.imageUserImageViewid);
         nameUserTv=findViewById(R.id.nameUserTvId);
         expertUserTv=findViewById(R.id.expertUserTvId);
@@ -48,26 +48,30 @@ public class UserProfileActivity extends AppCompatActivity {
         bloodUserTv=findViewById(R.id.bloodUserTvId);
         dateOfBirthUserTv=findViewById(R.id.dateOfBirthUserTvId);
         backToHomeUserBtn=findViewById(R.id.backToHomeUserBtnId);
-
-
+        Intent intent=getIntent();
+        email=intent.getStringExtra("email");
+        try{
             FirebaseDatabase.getInstance().getReference().child("User").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(snapshot.exists()){
-                       // Toast.makeText(UserProfileActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(UserProfileActivity.this, "Success", Toast.LENGTH_SHORT).show();
                         for (DataSnapshot s:snapshot.getChildren()){
                             User u=s.getValue(User.class);
-                            Picasso.get().load(u.getImage()).into(imageUserImageView);
-                            nameUserTv.setText(u.getName());
-                            expertUserTv.setText(u.getWorkbackground());
-                            phoneUserTv.setText(u.getPhone());
-                            emailUserTv.setText(u.getEmail());
-                            aboutNameUserTv.setText("About "+u.getName());
-                            aboutDetailsUserTv.setText(u.getAbout());
-                            genderUserTv.setText("Gender   : "+u.getGender());
-                            bloodUserTv.setText("Blood Group : "+u.getBloodgroup());
-                            dateOfBirthUserTv.setText("Date Of Birth : "+u.getDate());
-                            Toast.makeText(UserProfileActivity.this, "Data set in user profile", Toast.LENGTH_SHORT).show();
+                            if (u.getEmail().equals(email)){
+                                userArrayList.add(u);
+                                Picasso.get().load(u.getImage()).into(imageUserImageView);
+                                nameUserTv.setText(u.getName());
+                                expertUserTv.setText(u.getWorkbackground());
+                                phoneUserTv.setText(u.getPhone());
+                                emailUserTv.setText(u.getEmail());
+                                aboutNameUserTv.setText("About "+u.getName());
+                                aboutDetailsUserTv.setText(u.getAbout());
+                                genderUserTv.setText("Gender   : "+u.getGender());
+                                bloodUserTv.setText("Blood Group : "+u.getBloodgroup());
+                                dateOfBirthUserTv.setText("Date Of Birth : "+u.getDate());
+                            }
+                            // Toast.makeText(UserProfileActivity.this, "Data set in user profile", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -79,13 +83,23 @@ public class UserProfileActivity extends AppCompatActivity {
                 }
             });
 
-            backToHomeUserBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+            // Toast.makeText(UserProfileActivity.this,"Email User : "+userArrayList.get(0).getName(),Toast.LENGTH_SHORT).show();
 
 
-                }
-            });
+
+        }
+        catch (Exception ee){
+            Toast.makeText(UserProfileActivity.this, "Problem : "+ee, Toast.LENGTH_LONG).show();
+        }
+
+        backToHomeUserBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(UserProfileActivity.this, "Email : "+email, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
 
 
 

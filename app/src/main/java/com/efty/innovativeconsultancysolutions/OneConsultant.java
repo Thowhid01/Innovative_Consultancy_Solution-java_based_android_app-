@@ -1,3 +1,4 @@
+
 package com.efty.innovativeconsultancysolutions;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +22,7 @@ public class OneConsultant extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one_consultant);
-
+        this.setTitle("OneConsultant");
         nameTv=findViewById(R.id.nameOneConsultantTvId);
         phoneTv=findViewById(R.id.phoneOneConsultantTvId);
         expertTv=findViewById(R.id.expertOneConsultantTvId);

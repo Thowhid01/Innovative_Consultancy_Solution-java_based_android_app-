@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InnovativeConsultancySolutions">
         <activity
-            android:name=".ConsulanatyHomeActivity"
+            android:name=".ConsultantBolgVedioSelectActivity"
             android:exported="false" />
         <activity
             android:name=".UserProfileActivity"
