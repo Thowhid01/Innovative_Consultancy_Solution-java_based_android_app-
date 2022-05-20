@@ -22,11 +22,22 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
     private Button loginActivityLoginBtn;
     private EditText loginActivityEmailEd,loginActivityPasswordEd;
     private FirebaseAuth auth;
+    Intent i;
+    String consultant;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        i=getIntent();
+        consultant=i.getStringExtra("consultant");
+       /* if (consultant.equals("Consultant")){
+            this.setTitle("Consultant_login_activity");
+        }
+        else {
+            this.setTitle("User_login_activity");
+        }*/
         auth=FirebaseAuth.getInstance();
         loginActivityLoginBtn = findViewById(R.id.loginActivityLoginBtnId);
         loginActivityLoginBtn.setOnClickListener(this);
@@ -78,10 +89,25 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(getApplicationContext(),"Login successfull",Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(login_activity.this,UserHomeActivity.class);
-                    intent.putExtra("email",loginActivityEmailEd.getText().toString());
-                    startActivity(intent);
+                    try {
+
+                        if (consultant.equals("Consultant")){
+                            Toast.makeText(getApplicationContext(),"Login successful as a Consultant",Toast.LENGTH_SHORT).show();
+                            Intent intent1=new Intent(login_activity.this,ConsultantBolgVedioSelectActivity.class);
+                            intent1.putExtra("email",loginActivityEmailEd.getText().toString());
+                            startActivity(intent1);
+
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(),"Login successful as a User",Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(login_activity.this,UserHomeActivity.class);
+                            intent.putExtra("email",loginActivityEmailEd.getText().toString());
+                            startActivity(intent);
+                       }
+
+                    }catch (Exception e){
+                        Toast.makeText(login_activity.this, "Problem : "+e, Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
                     Toast.makeText(getApplicationContext(),"Login not successfull",Toast.LENGTH_SHORT).show();

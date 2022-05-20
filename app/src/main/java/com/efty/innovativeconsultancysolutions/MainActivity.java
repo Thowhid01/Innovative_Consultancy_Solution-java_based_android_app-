@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        this.setTitle("MainActivity");
         gettingStartedButton=findViewById(R.id.gettingStartedButtonId);
         loginMainActivityButton=findViewById(R.id.loginMainActivityButtonId);
         loginMainActivityButton.setOnClickListener(new View.OnClickListener() {

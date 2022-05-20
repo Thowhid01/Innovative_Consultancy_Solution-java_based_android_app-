@@ -66,7 +66,7 @@
                android:layout_margin="10dp"
                android:layout_gravity="center"
                android:backgroundTint="#25593E"
-               android:text="Join as Consultant"
+               android:text="Join as a Consultant"
                android:textSize="16sp"
                android:textColor="@color/white"
                android:id="@+id/signupasConsultantbuttonId"/>
@@ -77,7 +77,7 @@
                android:layout_margin="10dp"
                android:layout_gravity="center"
                android:backgroundTint="#212F79"
-               android:text="Join ans User"
+               android:text="Join as a User"
                android:textSize="17sp"
                android:textColor="@color/white"/>
 

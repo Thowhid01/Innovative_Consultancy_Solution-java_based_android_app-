@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,17 +24,19 @@ public class UserHomeActivity extends AppCompatActivity {
 
     ArrayList<Consultant> listItemData;
     RecyclerView recyclerView;
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
-        this.setTitle("Our Experts");
+        this.setTitle("Our Experts and UserHomeActivity");
        // this.getActionBar().setIcon(R.drawable.ic_baseline_menu_24);
 
         listItemData=new ArrayList<>();
      /*   listItemData.add(new ListItemData("03/03/2000","Mohammad Faisal","01878141051"));
         listItemData.add(new ListItemData("03/04/2012","Mohammad Arif","01878141041"));
 */
+        mAuth=FirebaseAuth.getInstance();
         recyclerView=(RecyclerView) findViewById(R.id.expertDetailsRecylerVtewId);
         MyListAdapter adapter=new MyListAdapter(listItemData,getApplicationContext());
         recyclerView.setHasFixedSize(true);
@@ -93,6 +96,10 @@ public class UserHomeActivity extends AppCompatActivity {
                 return true;
             case  R.id.signoutMenuId:
                 Toast.makeText(UserHomeActivity.this, "Sign out selected", Toast.LENGTH_SHORT).show();
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                Intent intent2=new Intent(UserHomeActivity.this,getting_started.class);
+                startActivity(intent2);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
