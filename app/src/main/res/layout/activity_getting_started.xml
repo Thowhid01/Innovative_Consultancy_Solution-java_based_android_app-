@@ -43,16 +43,7 @@
         android:text="Continue with Facebook"
         android:textColor="@color/white"
         android:textSize="17sp" />
-    <Button
-        android:id="@+id/loginAsaConsultantgettingStartActivityButtonid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_gravity="center"
-        android:backgroundTint="#EDEDED"
-        android:text="Login as a Consultant"
-        android:textSize="17sp"
-        android:textColor="@color/black"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

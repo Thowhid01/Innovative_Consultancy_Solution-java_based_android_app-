@@ -21,8 +21,8 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
     private Button signupLoginactivityButton;
     private Button loginActivityLoginBtn;
     private EditText loginActivityEmailEd,loginActivityPasswordEd;
+    private Button loginAsaConsultantActivityLoginBtn;
     private FirebaseAuth auth;
-    Intent i;
     String consultant;
 
 
@@ -30,21 +30,19 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        i=getIntent();
-        consultant=i.getStringExtra("consultant");
-       /* if (consultant.equals("Consultant")){
-            this.setTitle("Consultant_login_activity");
-        }
-        else {
-            this.setTitle("User_login_activity");
-        }*/
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("login_activity");
+        getSupportActionBar().setSubtitle("Hi...");
+
         auth=FirebaseAuth.getInstance();
         loginActivityLoginBtn = findViewById(R.id.loginActivityLoginBtnId);
         loginActivityLoginBtn.setOnClickListener(this);
         loginActivityEmailEd=findViewById(R.id.loginActivityEmailEdId);
         loginActivityPasswordEd=findViewById(R.id.loginActivityPasswordEdId);
         signupLoginactivityButton=findViewById(R.id.signupLoginactivityButtonid);
-
+        loginAsaConsultantActivityLoginBtn=findViewById(R.id.loginAsaConsultantActivityLoginBtnId);
+        loginAsaConsultantActivityLoginBtn.setOnClickListener(this);
         signupLoginactivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,6 +55,11 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
         if(view.getId()==R.id.loginActivityLoginBtnId){
+            consultant="User";
+            userLogin();
+        }
+        else if(view.getId()==R.id.loginAsaConsultantActivityLoginBtnId){
+            consultant="Consultant";
             userLogin();
         }
     }
@@ -92,14 +95,14 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
                     try {
 
                         if (consultant.equals("Consultant")){
-                            Toast.makeText(getApplicationContext(),"Login successful as a Consultant",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(login_activity.this,"Login successful as a Consultant",Toast.LENGTH_SHORT).show();
                             Intent intent1=new Intent(login_activity.this,ConsultantBolgVedioSelectActivity.class);
                             intent1.putExtra("email",loginActivityEmailEd.getText().toString());
                             startActivity(intent1);
 
                         }
-                        else {
-                            Toast.makeText(getApplicationContext(),"Login successful as a User",Toast.LENGTH_SHORT).show();
+                        else if (consultant.equals("User")){
+                            Toast.makeText(login_activity.this,"Login successful as a User",Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(login_activity.this,UserHomeActivity.class);
                             intent.putExtra("email",loginActivityEmailEd.getText().toString());
                             startActivity(intent);
