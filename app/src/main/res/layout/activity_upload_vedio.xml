@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     tools:context=".UploadVedioActivity">
 
     <LinearLayout
@@ -13,6 +14,7 @@
         android:layout_marginTop="20dp"
         android:background="@color/white"
         >
+
         <EditText
             android:id="@+id/videoinfoTextViewId"
             android:hint="What's on your mind ??"
@@ -59,10 +61,10 @@
                 />
 
             <TextView
-                android:id="@+id/videoUploadButtonId"
+                android:id="@+id/videoUploadTextViewId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Publish"
+                android:text="Upload Video"
                 android:textSize="20dp"
                 android:layout_marginTop="5dp"
                 android:textStyle="bold"
@@ -103,7 +105,7 @@
 
 
             <Button
-                android:id="@+id/blogpublishButtonId"
+                android:id="@+id/videopublishButtonId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Publish"
