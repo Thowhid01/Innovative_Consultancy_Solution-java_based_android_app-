@@ -36,7 +36,11 @@ public class UserProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
        // this.setTitle("Hi User");
-        this.setTitle("UserProfileActivity");
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("UserProfileActivity !!");
+        getSupportActionBar().setSubtitle("Hi...");
+
         imageUserImageView=findViewById(R.id.imageUserImageViewid);
         nameUserTv=findViewById(R.id.nameUserTvId);
         expertUserTv=findViewById(R.id.expertUserTvId);

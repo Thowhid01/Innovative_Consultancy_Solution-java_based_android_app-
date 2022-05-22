@@ -29,7 +29,13 @@ public class UserHomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
-        this.setTitle("Our Experts and UserHomeActivity");
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Our Experts and UserHomeActivity !!");
+        Intent i=getIntent();
+
+        getSupportActionBar().setSubtitle(i.getStringExtra("email"));
+
        // this.getActionBar().setIcon(R.drawable.ic_baseline_menu_24);
 
         listItemData=new ArrayList<>();
@@ -51,7 +57,6 @@ public class UserHomeActivity extends AppCompatActivity {
                     for(DataSnapshot snapshot1:snapshot.getChildren()){
                         Consultant consultant=snapshot1.getValue(Consultant.class);
                         listItemData.add(new Consultant(consultant.getWorkbackground(),consultant.getName(),consultant.getPhone(),consultant.getImage(),consultant.getAbout(),consultant.getBloodgroup(),consultant.getDate(),consultant.getGender(),consultant.getEmail()));
-
                     }
                     adapter.notifyDataSetChanged();
                 }
