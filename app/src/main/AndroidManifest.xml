@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InnovativeConsultancySolutions">
         <activity
+            android:name=".UploadVedioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MakeBlogActivity"
+            android:exported="false" />
+        <activity
             android:name=".ConsultantBolgVedioSelectActivity"
             android:exported="false" />
         <activity

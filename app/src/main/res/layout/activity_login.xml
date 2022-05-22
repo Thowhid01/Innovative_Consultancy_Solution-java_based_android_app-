@@ -68,9 +68,21 @@
                 android:layout_margin="10dp"
                 android:layout_gravity="center"
                 android:backgroundTint="#25593E"
-                android:text="Login"
+                android:text="Login as User"
                 android:textSize="17sp"
                 android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/loginAsaConsultantActivityLoginBtnId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#25593E"
+                android:text="Login as Consultant"
+                android:textSize="17sp"
+                android:textColor="@color/white"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

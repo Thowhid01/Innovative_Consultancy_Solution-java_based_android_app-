@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".UploadVedioActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        >
+
+        <EditText
+            android:id="@+id/videoinfoTextViewId"
+            android:hint="What's on your mind ??"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:textSize="18dp"
+            android:textStyle="normal"
+            android:textColor="@color/black"
+            android:background="#CDEDDC"
+            android:layout_height="80dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@color/black"
+            >
+
+            <EditText
+                android:id="@+id/videotitleEditTextId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#CDEDDC"
+                android:textColor="@color/black"
+                android:hint="Add a Title"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                />
+
+            <EditText
+                android:id="@+id/videothumbnailEditTextId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#CDEDDC"
+                android:textColor="@color/black"
+                android:hint="Thumbnail"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                />
+
+            <TextView
+                android:id="@+id/videoUploadTextViewId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Upload Video"
+                android:textSize="20dp"
+                android:layout_marginTop="5dp"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:background="#CDEDDC"
+                />
+
+            <EditText
+                android:id="@+id/videocatagoryEditTextId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#CDEDDC"
+                android:textColor="@color/black"
+                android:hint="Catagory"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                />
+
+
+            <EditText
+                android:id="@+id/videodurationEditTextId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#CDEDDC"
+                android:textColor="@color/black"
+                android:hint="Duration"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                />
+
+
+            <Button
+                android:id="@+id/videopublishButtonId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Publish"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:backgroundTint="#25593E"
+                />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+</ScrollView>

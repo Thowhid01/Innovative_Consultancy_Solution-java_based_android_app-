@@ -46,7 +46,10 @@ public class information_setup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information_setup);
-        this.setTitle("information_setup");
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("information_setup");
+        getSupportActionBar().setSubtitle("Hi...");
         Intent intent=getIntent();
        catagory= intent.getIntExtra("select",0);
        updateBtn=findViewById(R.id.informationsetupupdatebuttonid);
