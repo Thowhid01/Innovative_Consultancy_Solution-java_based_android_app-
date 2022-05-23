@@ -14,6 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InnovativeConsultancySolutions">
         <activity
+            android:name=".AllVideoShow"
+            android:exported="false" />
+        <activity
+            android:name=".singleConsultantAllBlog"
+            android:exported="false" />
+        <activity
+            android:name=".singleBlogShow"
+            android:exported="false" />
+        <activity
+            android:name=".AllBlogShow"
+            android:exported="false" />
+        <activity
             android:name=".UploadVedioActivity"
             android:exported="false" />
         <activity

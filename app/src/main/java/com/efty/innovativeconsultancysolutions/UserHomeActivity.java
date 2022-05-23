@@ -91,12 +91,22 @@ public class UserHomeActivity extends AppCompatActivity {
                 Toast.makeText(UserHomeActivity.this, "Profile selected : "+email, Toast.LENGTH_SHORT).show();
                 return true;
             case  R.id.blogMenuId:
+                Intent intent3=getIntent();
+                String email2=intent3.getStringExtra("email");
+                Intent intent4=new Intent(UserHomeActivity.this,AllBlogShow.class);
+                intent4.putExtra("email",email2);
+                startActivity(intent4);
                 Toast.makeText(UserHomeActivity.this, "Blog selected", Toast.LENGTH_SHORT).show();
                 return true;
             case  R.id.aboutappMenuId:
                 Toast.makeText(UserHomeActivity.this, "About app selected", Toast.LENGTH_SHORT).show();
                 return true;
             case  R.id.aboutdevelopersMenuId:
+                Intent intent5=getIntent();
+                String email3=intent5.getStringExtra("email");
+                Intent intent6=new Intent(UserHomeActivity.this,AllVideoShow.class);
+                intent6.putExtra("email",email3);
+                startActivity(intent6);
                 Toast.makeText(UserHomeActivity.this, "About Developers selected", Toast.LENGTH_SHORT).show();
                 return true;
             case  R.id.signoutMenuId:

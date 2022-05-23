@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -16,7 +17,7 @@ public class OneConsultant extends AppCompatActivity {
 
     private TextView nameTv,expertTv,phoneTv,aboutNameTv,aboutTv,genderTv,bloodTv,dateTv,emailTv;
     private ImageView imageView;
-    private Button button;
+    private Button button,blog,video;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,8 @@ public class OneConsultant extends AppCompatActivity {
         dateTv=findViewById(R.id.dateOfBirthOneConsultantTvId);
         imageView=findViewById(R.id.imageOneConsultntImageViewid);
         button=findViewById(R.id.backToHomeOneConsultantBtnId);
+        blog=findViewById(R.id.blogOneConsultantTvId);
+        video=findViewById(R.id.videoOneConsultantTvId);
 
         Intent intent=getIntent();
         String name,phone,expert,aboutName,about,gender,blood,date,image,email;
@@ -71,6 +74,25 @@ public class OneConsultant extends AppCompatActivity {
                 intent.putExtra(Intent.EXTRA_TEXT,body);
 
                 startActivity(Intent.createChooser(i,"Share with your Friend"));
+            }
+        });
+
+        blog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=getIntent();
+                String email;
+                email=intent.getStringExtra("email");
+                Intent intent1=new Intent(OneConsultant.this,singleConsultantAllBlog.class);
+                intent1.putExtra("email",email);
+                startActivity(intent1);
+            }
+        });
+
+        video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(OneConsultant.this, "Waiting for Update !!! coming soon", Toast.LENGTH_SHORT).show();
             }
         });
 
