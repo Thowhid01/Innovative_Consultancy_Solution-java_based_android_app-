@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -31,17 +33,15 @@ public class UserHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_home);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Our Experts and UserHomeActivity !!");
         Intent i=getIntent();
 
         getSupportActionBar().setSubtitle(i.getStringExtra("email"));
 
-       // this.getActionBar().setIcon(R.drawable.ic_baseline_menu_24);
 
         listItemData=new ArrayList<>();
-     /*   listItemData.add(new ListItemData("03/03/2000","Mohammad Faisal","01878141051"));
-        listItemData.add(new ListItemData("03/04/2012","Mohammad Arif","01878141041"));
-*/
+
         mAuth=FirebaseAuth.getInstance();
         recyclerView=(RecyclerView) findViewById(R.id.expertDetailsRecylerVtewId);
         MyListAdapter adapter=new MyListAdapter(listItemData,getApplicationContext());
@@ -98,15 +98,19 @@ public class UserHomeActivity extends AppCompatActivity {
                 startActivity(intent4);
                 Toast.makeText(UserHomeActivity.this, "Blog selected", Toast.LENGTH_SHORT).show();
                 return true;
-            case  R.id.aboutappMenuId:
-                Toast.makeText(UserHomeActivity.this, "About app selected", Toast.LENGTH_SHORT).show();
-                return true;
-            case  R.id.aboutdevelopersMenuId:
+
+            case R.id.videoMenuId:
                 Intent intent5=getIntent();
                 String email3=intent5.getStringExtra("email");
                 Intent intent6=new Intent(UserHomeActivity.this,AllVideoShow.class);
                 intent6.putExtra("email",email3);
                 startActivity(intent6);
+                return true;
+
+            case  R.id.aboutappMenuId:
+                Toast.makeText(UserHomeActivity.this, "About app selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case  R.id.aboutdevelopersMenuId:
                 Toast.makeText(UserHomeActivity.this, "About Developers selected", Toast.LENGTH_SHORT).show();
                 return true;
             case  R.id.signoutMenuId:
@@ -121,4 +125,27 @@ public class UserHomeActivity extends AppCompatActivity {
         }
 
     }
+
+    //on back press button
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+        builder.setMessage("Do you want to Exit?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alert=builder.create();
+        alert.show();
+    }
+
 }
