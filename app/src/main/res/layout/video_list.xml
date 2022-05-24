@@ -25,12 +25,19 @@
             android:textStyle="bold"
             />
 
-        <VideoView
-            android:id="@+id/videoVideoViewId"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginTop="3dp"
-            />
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:gravity="center"
+           >
+           <VideoView
+               android:id="@+id/videoVideoViewId"
+               android:layout_width="match_parent"
+               android:layout_height="250dp"
+               android:layout_marginTop="3dp"
+               />
+       </LinearLayout>
     </LinearLayout>
 
 

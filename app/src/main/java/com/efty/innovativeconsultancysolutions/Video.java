@@ -7,17 +7,19 @@ public class Video {
     private String title;
     private String videoDetails;
     private String videolink;
+    private String email;
 
     public Video() {
     }
 
-    public Video(String catagory, String keyword, String thumbnail, String title, String videoDetails, String videolink) {
+    public Video(String catagory, String keyword, String thumbnail, String title, String videoDetails, String videolink, String email) {
         this.catagory = catagory;
         this.keyword = keyword;
         this.thumbnail = thumbnail;
         this.title = title;
         this.videoDetails = videoDetails;
         this.videolink = videolink;
+        this.email = email;
     }
 
     public String getCatagory() {
@@ -66,5 +68,13 @@ public class Video {
 
     public void setVideolink(String videolink) {
         this.videolink = videolink;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

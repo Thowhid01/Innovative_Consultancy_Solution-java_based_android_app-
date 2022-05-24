@@ -92,7 +92,20 @@ public class OneConsultant extends AppCompatActivity {
         video.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(OneConsultant.this, "Waiting for Update !!! coming soon", Toast.LENGTH_SHORT).show();
+               try{
+                  Intent intent2=getIntent();
+                   String email;
+                   email=intent2.getStringExtra("email");
+                   Intent intent3=new Intent(OneConsultant.this,SingleConsultantAllVideoShow.class);
+                   intent3.putExtra("email",email);
+                   startActivity(intent3);
+                   Toast.makeText(OneConsultant.this, "Update very soon !!", Toast.LENGTH_SHORT).show();
+
+               }
+               catch (Exception e){
+                   Toast.makeText(OneConsultant.this, "Problem : "+e+"Waiting for Update !!! coming soon", Toast.LENGTH_SHORT).show();
+               }
+
             }
         });
 

@@ -1,20 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     tools:context=".singleBlogShow">
 
-    <TextView
-        android:gravity="center"
-        android:text="Single Blog Activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="30dp"
-        />
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:padding="5dp"
+       >
+       <TextView
+           android:id="@+id/titleSingleBlogTvId"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="How to Study"
+           android:textColor="@color/black"
+           android:textStyle="bold"
+           android:textSize="30dp"
+           />
+       <TextView
+           android:id="@+id/catagorySingleBlogTvId"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Category"
+           android:textColor="@color/black"
+           android:textStyle="normal"
+           android:textSize="18dp"
+           android:layout_marginBottom="15dp"
+           />
 
-</LinearLayout>
+       <androidx.cardview.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:cardCornerRadius="20dp"
+           >
+           <ImageView
+               android:id="@+id/singleblogImageViewId"
+               android:layout_width="match_parent"
+               android:layout_height="250dp"
+               android:src="@drawable/pic"
+               android:scaleType="centerCrop"
+               />
+
+
+       </androidx.cardview.widget.CardView>
+       <TextView
+           android:id="@+id/emailSingleBlogTvId"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="email"
+           android:layout_marginTop="10dp"
+           android:textColor="@color/black"
+           android:textStyle="italic"
+           android:textSize="18dp"
+           android:layout_marginBottom="15dp"
+           />
+
+       <TextView
+           android:id="@+id/keywordSingleBlogTvId"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Keyword"
+           android:layout_marginTop="20dp"
+           android:textColor="@color/black"
+           android:textStyle="normal"
+           android:textSize="18dp"
+           android:layout_marginBottom="15dp"
+           />
+
+       <TextView
+           android:id="@+id/bodySingleBlogTvId"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Blog details"
+           android:textColor="@color/black"
+           android:textStyle="normal"
+           android:textSize="18dp"
+           android:padding="5dp"
+           android:background="#CDD3D2"
+           android:layout_marginBottom="15dp"
+           />
+
+
+   </LinearLayout>
+
+</ScrollView>

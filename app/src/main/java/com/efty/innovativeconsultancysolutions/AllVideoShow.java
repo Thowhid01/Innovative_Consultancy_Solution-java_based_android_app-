@@ -45,7 +45,7 @@ public class AllVideoShow extends AppCompatActivity {
                     videoItemData.clear();
                     for(DataSnapshot snapshot1:snapshot.getChildren()){
                         Video video=snapshot1.getValue(Video.class);
-                        videoItemData.add(new Video(video.getCatagory(),video.getKeyword(),video.getThumbnail(),video.getTitle(),video.getVideoDetails(),video.getVideolink()));
+                        videoItemData.add(new Video(video.getCatagory(),video.getKeyword(),video.getThumbnail(),video.getTitle(),video.getVideoDetails(),video.getVideolink(),video.getEmail()));
                     }
                     adapter.notifyDataSetChanged();
                 }

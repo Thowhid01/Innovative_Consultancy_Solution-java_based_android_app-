@@ -73,6 +73,8 @@ public class UploadVedioActivity extends AppCompatActivity {
                     hashMap.put("thumbnail",videothumbnailEditText.getText().toString());
                     hashMap.put("catagory",videocatagoryEditText.getText().toString());
                     hashMap.put("keyword",videodurationEditText.getText().toString());
+                    hashMap.put("email",email);
+
                     Thread.sleep(3000);
                     uploadvideo();
 

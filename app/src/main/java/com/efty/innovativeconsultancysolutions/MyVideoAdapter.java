@@ -1,6 +1,7 @@
 package com.efty.innovativeconsultancysolutions;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -76,6 +77,17 @@ public class MyVideoAdapter extends RecyclerView.Adapter<MyVideoAdapter.ViewHold
         holder.videoCardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent=new Intent(view.getContext(),SingleVideoShow.class);
+                intent.putExtra("category",videoData.get(holder.getAdapterPosition()).getCatagory());
+                intent.putExtra("title",videoData.get(holder.getAdapterPosition()).getTitle());
+                intent.putExtra("keyword",videoData.get(holder.getAdapterPosition()).getKeyword());
+                intent.putExtra("thumbnail",videoData.get(holder.getAdapterPosition()).getThumbnail());
+                intent.putExtra("videoDetails",videoData.get(holder.getAdapterPosition()).getVideoDetails());
+                intent.putExtra("videolink",videoData.get(holder.getAdapterPosition()).getVideolink());
+                intent.putExtra("email",videoData.get(holder.getAdapterPosition()).getEmail());
+
+                view.getContext().startActivity(intent);
+
                 Toast.makeText(view.getContext(), "Video title : "+videoData.get(holder.getAdapterPosition()).getTitle(), Toast.LENGTH_SHORT).show();
             }
         });
