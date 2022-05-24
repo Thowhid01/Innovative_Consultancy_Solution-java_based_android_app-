@@ -109,14 +109,14 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
                         if (consultant.equals("Consultant")){
                             Toast.makeText(login_activity.this,"Login successful as a Consultant",Toast.LENGTH_SHORT).show();
                             Intent intent1=new Intent(login_activity.this,ConsultantBolgVedioSelectActivity.class);
-                            intent1.putExtra("email",loginActivityEmailEd.getText().toString());
+                            intent1.putExtra("email",loginActivityEmailEd.getText().toString().trim());
                             startActivity(intent1);
 
                         }
                         else if (consultant.equals("User")){
                             Toast.makeText(login_activity.this,"Login successful as a User",Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(login_activity.this,UserHomeActivity.class);
-                            intent.putExtra("email",loginActivityEmailEd.getText().toString());
+                            intent.putExtra("email",loginActivityEmailEd.getText().toString().trim());
                             startActivity(intent);
                        }
 
