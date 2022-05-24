@@ -3,6 +3,8 @@ package com.efty.innovativeconsultancysolutions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -66,14 +68,34 @@ public class OneConsultant extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(Intent.ACTION_SEND);
+              /*  Intent i=new Intent(Intent.ACTION_SEND);
                 i.setType("text/plain");
                 String subject="Mohammad Sakib";
                 String body="Feel free to ask any question.";
                 intent.putExtra(Intent.EXTRA_SUBJECT,subject);
                 intent.putExtra(Intent.EXTRA_TEXT,body);
 
-                startActivity(Intent.createChooser(i,"Share with your Friend"));
+                startActivity(Intent.createChooser(i,"Share with your Friend"));*/
+              /*  Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                sendIntent.setType("text/plain");
+
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
+                startActivity(shareIntent);*/
+                String to=email.toString().trim();
+                String subject="About learning pupuse only !!";
+                String message="Sorry for that";
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{ to});
+                email.putExtra(Intent.EXTRA_SUBJECT, subject);
+                email.putExtra(Intent.EXTRA_TEXT, message);
+
+                //need this to prompts email client only
+                email.setType("message/rfc822");
+
+                startActivity(Intent.createChooser(email, "Choose an Email client :"));
+
             }
         });
 
@@ -110,4 +132,27 @@ public class OneConsultant extends AppCompatActivity {
         });
 
     }
+
+    //on back press button
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+        builder.setMessage("Do you want to Exit?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alert=builder.create();
+        alert.show();
+    }
+
 }

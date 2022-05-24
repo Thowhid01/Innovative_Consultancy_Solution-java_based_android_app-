@@ -11,9 +11,16 @@
         />
     <item
         android:id="@+id/blogMenuId"
-        android:title="Blog"
+        android:title="Blogs"
         app:showAsAction="never"
         />
+
+    <item
+        android:id="@+id/videoMenuId"
+        android:title="Videos"
+        app:showAsAction="never"
+        />
+
     <item
         android:id="@+id/aboutappMenuId"
         android:title="About App"
