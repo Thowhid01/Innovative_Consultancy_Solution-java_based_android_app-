@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SingleVideoShow">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        >
+        <TextView
+            android:id="@+id/videoTitleTvId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How to Study"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/videoEmailTvId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="faisal574681@gmail.com"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/videoCategoryTvId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Category"
+            android:textStyle="normal"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:gravity="center"
+           >
+           <VideoView
+               android:id="@+id/singleVideoVideoViewId"
+               android:layout_width="match_parent"
+               android:layout_height="300dp"
+               android:layout_marginTop="10dp"
+               />
+       </LinearLayout>
+
+        <TextView
+            android:id="@+id/videoDetailsTvId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="video Details"
+            android:textStyle="normal"
+            android:textSize="20dp"
+            android:padding="5dp"
+            android:background="#CDD3D2"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            />
+
+
+    </LinearLayout>
+
+</ScrollView>

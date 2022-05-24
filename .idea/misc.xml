@@ -13,6 +13,8 @@
         <entry key="..\:/AndroidStudioProjects/InnovativeConsultancySolutions/app/src/main/res/layout/activity_signup.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/InnovativeConsultancySolutions/app/src/main/res/layout/activity_splash_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.1475" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/activity_all_blog_show.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/activity_all_video_show.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/activity_consultant_bolg_vedio_select.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/activity_getting_started.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/activity_information_setup.xml" value="0.17864583333333334" />
@@ -21,10 +23,16 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/activity_make_blog.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/activity_one_consultant.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/activity_signup.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/activity_single_blog_show.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/activity_single_consultant_all_blog.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/activity_single_consultant_all_video_show.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/activity_single_video_show.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/activity_upload_vedio.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/activity_user_home.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/activity_user_profile.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/blog_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/item_list.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/layout/video_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Innovative_Consultancy_Solution-java_based_android_app-/app/src/main/res/menu/menu_layout.xml" value="0.17864583333333334" />
       </map>
     </option>

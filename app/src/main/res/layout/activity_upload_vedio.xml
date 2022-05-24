@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:background="#CDEDDC"
                 android:textColor="@color/black"
-                android:hint="Duration"
+                android:hint="Keyword"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:padding="10dp"
