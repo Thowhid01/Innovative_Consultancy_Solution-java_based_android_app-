@@ -108,6 +108,8 @@ public class information_setup extends AppCompatActivity {
                          // FirebaseDatabase.getInstance().getReference().child("Consultant").push().setValue(hashMap);
 
                           Toast.makeText(information_setup.this, "Data added as a consultant successfully!!", Toast.LENGTH_SHORT).show();
+                          Intent intent1=new Intent(information_setup.this,ConsultantBolgVedioSelectActivity.class);
+                          startActivity(intent1);
                       }
                       else if(catagory==2){
                           uploadImage();
@@ -116,6 +118,8 @@ public class information_setup extends AppCompatActivity {
                         //  FirebaseDatabase.getInstance().getReference().child("User").push().setValue(hashMap);
 
                           Toast.makeText(information_setup.this, "Data added as a user successfully!!", Toast.LENGTH_SHORT).show();
+                          Intent intent1=new Intent(information_setup.this,UserHomeActivity.class);
+                          startActivity(intent1);
                       }
                       else {
                           Toast.makeText(information_setup.this, "Something went to wrong!!", Toast.LENGTH_SHORT).show();
