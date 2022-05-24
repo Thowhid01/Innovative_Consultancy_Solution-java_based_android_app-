@@ -3,6 +3,8 @@ package com.efty.innovativeconsultancysolutions;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
@@ -59,7 +61,6 @@ public class UserProfileActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(snapshot.exists()){
-                        // Toast.makeText(UserProfileActivity.this, "Success", Toast.LENGTH_SHORT).show();
                         for (DataSnapshot s:snapshot.getChildren()){
                             User u=s.getValue(User.class);
                             if (u.getEmail().equals(email)){
@@ -75,7 +76,7 @@ public class UserProfileActivity extends AppCompatActivity {
                                 bloodUserTv.setText("Blood Group : "+u.getBloodgroup());
                                 dateOfBirthUserTv.setText("Date Of Birth : "+u.getDate());
                             }
-                            // Toast.makeText(UserProfileActivity.this, "Data set in user profile", Toast.LENGTH_SHORT).show();
+
                         }
                     }
 
@@ -87,7 +88,7 @@ public class UserProfileActivity extends AppCompatActivity {
                 }
             });
 
-            // Toast.makeText(UserProfileActivity.this,"Email User : "+userArrayList.get(0).getName(),Toast.LENGTH_SHORT).show();
+
 
 
 
@@ -104,13 +105,29 @@ public class UserProfileActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
         }
+
+    //on back press button
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+        builder.setMessage("Do you want to Exit?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alert=builder.create();
+        alert.show();
+    }
 
 
     }
