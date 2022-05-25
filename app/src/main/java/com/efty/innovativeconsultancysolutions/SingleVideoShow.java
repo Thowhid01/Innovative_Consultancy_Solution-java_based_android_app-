@@ -1,5 +1,6 @@
 package com.efty.innovativeconsultancysolutions;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -8,6 +9,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +27,7 @@ public class SingleVideoShow extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("SingleVideoShow !!");
-        getSupportActionBar().setSubtitle("Hi..");
+       // getSupportActionBar().setSubtitle("Hi..");
 
         Intent intent=getIntent();
         String email=intent.getStringExtra("email");
@@ -47,6 +49,7 @@ public class SingleVideoShow extends AppCompatActivity {
         videoDetailsTv.setText(videoDetails);
         Uri uri=Uri.parse(videoLink);
         videoView.setVideoURI(uri);
+        videoView.start();
         MediaController mediaController = new MediaController(this);
         videoView.setMediaController(mediaController);
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
@@ -61,8 +64,18 @@ public class SingleVideoShow extends AppCompatActivity {
 
 
 
-        Toast.makeText(SingleVideoShow.this, "Email : "+email+"  VideoLink : "+videoLink, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(SingleVideoShow.this, "Email : "+email+"  VideoLink : "+videoLink, Toast.LENGTH_SHORT).show();
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId()==android.R.id.home){
+            this.finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     //on back press button

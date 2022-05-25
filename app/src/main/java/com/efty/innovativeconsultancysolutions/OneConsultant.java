@@ -1,12 +1,14 @@
 
 package com.efty.innovativeconsultancysolutions;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -28,7 +30,10 @@ public class OneConsultant extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("OneConsultant !!");
-        getSupportActionBar().setSubtitle("Hi...");
+
+
+
+
         nameTv=findViewById(R.id.nameOneConsultantTvId);
         phoneTv=findViewById(R.id.phoneOneConsultantTvId);
         expertTv=findViewById(R.id.expertOneConsultantTvId);
@@ -131,6 +136,17 @@ public class OneConsultant extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId()==android.R.id.home){
+            this.finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     //on back press button
