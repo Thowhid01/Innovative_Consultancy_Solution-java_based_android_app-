@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -110,6 +111,8 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
                             Toast.makeText(login_activity.this,"Login successful as a Consultant",Toast.LENGTH_SHORT).show();
                             Intent intent1=new Intent(login_activity.this,ConsultantBolgVedioSelectActivity.class);
                             intent1.putExtra("email",loginActivityEmailEd.getText().toString().trim());
+                            loginActivityEmailEd.setText("");
+                            loginActivityPasswordEd.setText("");
                             startActivity(intent1);
 
                         }
@@ -117,6 +120,8 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
                             Toast.makeText(login_activity.this,"Login successful as a User",Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(login_activity.this,UserHomeActivity.class);
                             intent.putExtra("email",loginActivityEmailEd.getText().toString().trim());
+                            loginActivityEmailEd.setText("");
+                            loginActivityPasswordEd.setText("");
                             startActivity(intent);
                        }
 
@@ -130,6 +135,16 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
             }
         });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId()==android.R.id.home){
+            this.finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     //on back press button

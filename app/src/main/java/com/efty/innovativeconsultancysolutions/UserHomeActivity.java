@@ -120,11 +120,15 @@ public class UserHomeActivity extends AppCompatActivity {
                 Intent intent2=new Intent(UserHomeActivity.this,getting_started.class);
                 startActivity(intent2);
                 return true;
+            case android.R.id.home:
+                this.finish();
             default:
                 return super.onOptionsItemSelected(item);
         }
 
     }
+
+
 
     //on back press button
     @Override

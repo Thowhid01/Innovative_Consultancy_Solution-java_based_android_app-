@@ -49,12 +49,19 @@
            android:orientation="vertical"
            android:gravity="center"
            >
-           <VideoView
-               android:id="@+id/singleVideoVideoViewId"
-               android:layout_width="match_parent"
-               android:layout_height="300dp"
-               android:layout_marginTop="10dp"
-               />
+          <FrameLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              >
+              <VideoView
+                  android:id="@+id/singleVideoVideoViewId"
+                  android:layout_width="match_parent"
+                  android:layout_gravity="center"
+                  android:layout_height="300dp"
+                  android:layout_marginTop="10dp"
+                  />
+          </FrameLayout>
        </LinearLayout>
 
         <TextView

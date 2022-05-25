@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -214,6 +215,16 @@ public class MakeBlogActivity extends AppCompatActivity {
                                 }
                             });
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId()==android.R.id.home){
+            this.finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     //on back press button

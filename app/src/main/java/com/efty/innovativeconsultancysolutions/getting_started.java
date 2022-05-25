@@ -1,11 +1,13 @@
 package com.efty.innovativeconsultancysolutions;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -50,6 +52,17 @@ public class getting_started extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId()==android.R.id.home){
+            this.finish();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     //on back press button
     @Override
     public void onBackPressed() {
@@ -59,6 +72,7 @@ public class getting_started extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(getting_started.this,MainActivity.class));
                 finish();
             }
         });

@@ -9,6 +9,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -78,6 +79,17 @@ public class SingleConsultantAllVideoShow extends AppCompatActivity {
            Toast.makeText(SingleConsultantAllVideoShow.this, "Problem : "+e+"Consultant : "+email, Toast.LENGTH_SHORT).show();
        }
 
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId()==android.R.id.home){
+            this.finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     //on back press button

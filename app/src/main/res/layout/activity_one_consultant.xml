@@ -183,8 +183,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="20dp"
-                android:backgroundTint="#681DED"
-
+                android:backgroundTint="#25593E"
+                android:background="@drawable/buttonshap"
                 >
                 <Button
                     android:id="@+id/backToHomeOneConsultantBtnId"

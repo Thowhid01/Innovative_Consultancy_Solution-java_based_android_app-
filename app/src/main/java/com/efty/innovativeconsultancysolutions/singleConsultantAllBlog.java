@@ -9,6 +9,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -67,6 +68,16 @@ public class singleConsultantAllBlog extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId()==android.R.id.home){
+            this.finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     //on back press button
