@@ -6,12 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,18 +29,18 @@ public class UserHomeActivity extends AppCompatActivity {
     ArrayList<Consultant> listItemData;
     RecyclerView recyclerView;
     FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
 
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Our Experts and UserHomeActivity !!");
         Intent i=getIntent();
-
         getSupportActionBar().setSubtitle(i.getStringExtra("email"));
-
 
         listItemData=new ArrayList<>();
 
@@ -53,13 +55,16 @@ public class UserHomeActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
+
                     listItemData.clear();
                     for(DataSnapshot snapshot1:snapshot.getChildren()){
                         Consultant consultant=snapshot1.getValue(Consultant.class);
                         listItemData.add(new Consultant(consultant.getWorkbackground(),consultant.getName(),consultant.getPhone(),consultant.getImage(),consultant.getAbout(),consultant.getBloodgroup(),consultant.getDate(),consultant.getGender(),consultant.getEmail()));
                     }
                     adapter.notifyDataSetChanged();
+
                 }
+
             }
 
             @Override
@@ -67,6 +72,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
             }
         });
+
     }
     //option menu set
 
