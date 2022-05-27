@@ -30,4 +30,15 @@
         android:text="Video"
         />
 
+    <Button
+        android:id="@+id/clientConsultantBolgVedioSelectActivityBtnId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:padding="5dp"
+        android:layout_marginTop="20dp"
+        android:text="Clients"
+        />
+
 </LinearLayout>
