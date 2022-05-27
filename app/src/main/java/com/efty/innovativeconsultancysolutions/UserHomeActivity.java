@@ -72,6 +72,10 @@ public class UserHomeActivity extends AppCompatActivity {
 
             }
         });
+        Intent intent=new Intent(UserHomeActivity.this,OneConsultant.class);
+        String email=i.getStringExtra("email");
+        intent.putExtra("uemail",email);
+        //startActivity(intent);
 
     }
     //option menu set

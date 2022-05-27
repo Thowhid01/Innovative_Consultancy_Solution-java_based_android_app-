@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".consultationDetails">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"
+            android:text="Consultation Details"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/consultantNameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textStyle="italic"
+            android:text="Name : Mohammad Faisal"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/consultantemailTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="italic"
+            android:text="email  : faisal574681@gmail.com"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/consultantphoneTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="italic"
+            android:text="Phone  : 01878141051"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:id="@+id/consultanttypeTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="italic"
+            android:text="Type  : Teacher"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:id="@+id/consultantdateTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="italic"
+            android:text="Date  : 26/05/2022"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:text="Consultation Details :"
+            android:textColor="@color/black"
+            />
+        <EditText
+            android:id="@+id/consultationDetailsId"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:textStyle="normal"
+            android:textSize="20dp"
+            android:visibility="visible"
+            android:textColor="@color/black"
+            android:background="#CAD5DF"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="User Name : "
+                android:textStyle="bold"
+                android:textSize="17dp"
+                android:textColor="@color/black"
+                />
+            <EditText
+                android:id="@+id/userNameEdEtId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                android:inputType="text"
+                />
+
+
+        </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:weightSum="2"
+           >
+
+           <TextView
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:textSize="17dp"
+               android:layout_marginTop="5dp"
+               android:textStyle="bold"
+               android:text="User Email : "
+               android:textColor="@color/black"
+               />
+           <EditText
+               android:id="@+id/useremailEdEtId"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:gravity="center"
+               android:layout_weight="1"
+               android:textStyle="normal"
+               android:textColor="@color/black"
+               android:inputType="text"
+               />
+
+
+
+       </LinearLayout>
+
+
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_marginTop="20dp"
+           android:gravity="center"
+           android:backgroundTint="#25593E"
+           >
+
+           <Button
+               android:id="@+id/submitBtnId"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Submit"
+               android:layout_marginLeft="20dp"
+               android:backgroundTint="#25593E"
+               />
+           <Button
+               android:id="@+id/homeBtnId"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Home"
+               android:layout_marginLeft="20dp"
+               android:backgroundTint="#25593E"
+               />
+
+       </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</ScrollView>
