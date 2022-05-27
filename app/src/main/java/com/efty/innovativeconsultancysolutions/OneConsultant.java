@@ -73,23 +73,10 @@ public class OneConsultant extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              /*  Intent i=new Intent(Intent.ACTION_SEND);
-                i.setType("text/plain");
-                String subject="Mohammad Sakib";
-                String body="Feel free to ask any question.";
-                intent.putExtra(Intent.EXTRA_SUBJECT,subject);
-                intent.putExtra(Intent.EXTRA_TEXT,body);
+               try {
 
-                startActivity(Intent.createChooser(i,"Share with your Friend"));*/
-              /*  Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
-                sendIntent.setType("text/plain");
-
-                Intent shareIntent = Intent.createChooser(sendIntent, null);
-                startActivity(shareIntent);*/
-                String to=email.toString().trim();
-                String subject="About learning pupuse only !!";
+                   String to=email.toString();
+             /*   String subject="About learning pupuse only !!";
                 String message="Sorry for that";
                 Intent email = new Intent(Intent.ACTION_SEND);
                 email.putExtra(Intent.EXTRA_EMAIL, new String[]{ to});
@@ -99,7 +86,18 @@ public class OneConsultant extends AppCompatActivity {
                 //need this to prompts email client only
                 email.setType("message/rfc822");
 
-                startActivity(Intent.createChooser(email, "Choose an Email client :"));
+                startActivity(Intent.createChooser(email, "Choose an Email client :"));*/
+                   Intent intent1=new Intent(OneConsultant.this,consultationDetails.class);
+                   intent1.putExtra("cemail",to);
+                   intent1.putExtra("ctype",expert.toString().trim());
+                   intent1.putExtra("cname",name.toString().trim());
+                   intent1.putExtra("cphone",phone.toString().trim());
+                   startActivity(intent1);
+
+               }catch (Exception e){
+                   Toast.makeText(OneConsultant.this, "Problem : "+e, Toast.LENGTH_SHORT).show();
+               }
+
 
             }
         });
