@@ -13,7 +13,7 @@ import android.widget.Button;
 
 public class ConsultantBolgVedioSelectActivity extends AppCompatActivity {
 
-    Button blogConsultantBolgVedioSelectActivityBtn,videoConsultantBolgVedioSelectActivityBtn;
+    Button blogConsultantBolgVedioSelectActivityBtn,videoConsultantBolgVedioSelectActivityBtn,clientConsultantBolgVedioSelectActivityBtn;
     Intent intent;
     String email;
 
@@ -32,6 +32,7 @@ public class ConsultantBolgVedioSelectActivity extends AppCompatActivity {
         email=intent.getStringExtra("email");
         blogConsultantBolgVedioSelectActivityBtn=findViewById(R.id.blogConsultantBolgVedioSelectActivityBtnId);
         videoConsultantBolgVedioSelectActivityBtn=findViewById(R.id.videoConsultantBolgVedioSelectActivityBtnId);
+        clientConsultantBolgVedioSelectActivityBtn=findViewById(R.id.clientConsultantBolgVedioSelectActivityBtnId);
         blogConsultantBolgVedioSelectActivityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,6 +45,14 @@ public class ConsultantBolgVedioSelectActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent1=new Intent(ConsultantBolgVedioSelectActivity.this,UploadVedioActivity.class);
+                intent1.putExtra("email",email);
+                startActivity(intent1);
+            }
+        });
+        clientConsultantBolgVedioSelectActivityBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1=new Intent(ConsultantBolgVedioSelectActivity.this,consultantClientDetails.class);
                 intent1.putExtra("email",email);
                 startActivity(intent1);
             }
