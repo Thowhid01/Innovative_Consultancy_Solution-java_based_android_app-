@@ -29,9 +29,10 @@ public class consultantClientDetails extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("consultantClientDetails !!");
-        //getSupportActionBar().setSubtitle("Hi..");
+
         Intent intent=getIntent();
         String email=intent.getStringExtra("email").toString();
+        getSupportActionBar().setSubtitle(email);
 
         clientData=new ArrayList<>();
         mAuth=FirebaseAuth.getInstance();
@@ -48,7 +49,10 @@ public class consultantClientDetails extends AppCompatActivity {
                     clientData.clear();
                     for(DataSnapshot snapshot1:snapshot.getChildren()){
                         Client client=snapshot1.getValue(Client.class);
-                        clientData.add(new Client(client.getConsultantEmail(),client.getConsultantName(),client.getConsultantPhone(),client.getConsultantType(),client.getConsultatDetails(),client.getConsultationDate(),client.getUserEmail(),client.getUserName()));
+                        if(client.getConsultantEmail().equals(email)){
+                            clientData.add(new Client(client.getConsultantEmail(),client.getConsultantName(),client.getConsultantPhone(),client.getConsultantType(),client.getConsultatDetails(),client.getConsultationDate(),client.getUserEmail(),client.getUserName()));
+                        }
+
                     }
                     adapter.notifyDataSetChanged();
                 }

@@ -1,6 +1,7 @@
 package com.efty.innovativeconsultancysolutions;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -68,6 +74,21 @@ public class MyClientAdapter extends RecyclerView.Adapter<MyClientAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "Yes excepted", Toast.LENGTH_SHORT).show();
+
+                Intent email = new Intent(Intent.ACTION_SEND);
+                String to=clientData.get(holder.getAdapterPosition()).getUserEmail();
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{ to});
+                email.putExtra(Intent.EXTRA_SUBJECT, "Your request is accepted. Thank you.");
+                email.putExtra(Intent.EXTRA_TEXT, "Next schedule date :  !!");
+
+                //need this to prompts email client only
+                email.setType("message/rfc822");
+
+                view.getContext().startActivity(Intent.createChooser(email, "Choose an Email client :"));
+
+
+
+
             }
         });
 
@@ -75,6 +96,17 @@ public class MyClientAdapter extends RecyclerView.Adapter<MyClientAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "Not excepted", Toast.LENGTH_SHORT).show();
+                Intent email = new Intent(Intent.ACTION_SEND);
+                String to=clientData.get(holder.getAdapterPosition()).getUserEmail();
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{ to});
+                email.putExtra(Intent.EXTRA_SUBJECT, "Your request is not accepted. Sorry for that.");
+                email.putExtra(Intent.EXTRA_TEXT, "About sorry  !!");
+
+                //need this to prompts email client only
+                email.setType("message/rfc822");
+
+                view.getContext().startActivity(Intent.createChooser(email, "Choose an Email client :"));
+
             }
         });
 
