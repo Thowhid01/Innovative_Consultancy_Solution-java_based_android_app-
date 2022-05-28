@@ -105,11 +105,11 @@ public class OneConsultant extends AppCompatActivity {
         blog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=getIntent();
-                String email;
-                email=intent.getStringExtra("email");
+             //   Intent intent=getIntent();
+               String email1=emailTv.getText().toString();
+               // email=intent.getStringExtra("email");
                 Intent intent1=new Intent(OneConsultant.this,singleConsultantAllBlog.class);
-                intent1.putExtra("email",email);
+                intent1.putExtra("email",email1);
                 startActivity(intent1);
             }
         });
@@ -118,11 +118,11 @@ public class OneConsultant extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                try{
-                  Intent intent2=getIntent();
-                   String email;
-                   email=intent2.getStringExtra("email");
+               //   Intent intent2=getIntent();
+               //    String email;
+               //    email=intent2.getStringExtra("email").toString();
                    Intent intent3=new Intent(OneConsultant.this,SingleConsultantAllVideoShow.class);
-                   intent3.putExtra("email",email);
+                   intent3.putExtra("email",email.toString());
                    startActivity(intent3);
                    Toast.makeText(OneConsultant.this, "Update very soon !!", Toast.LENGTH_SHORT).show();
 
