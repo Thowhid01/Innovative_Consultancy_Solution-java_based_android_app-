@@ -16,6 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InnovativeConsultancySolutions">
         <activity
+            android:name=".AboutDevelopver"
+            android:exported="false" />
+        <activity
+            android:name=".AboutApp"
+            android:exported="false" />
+        <activity
             android:name=".consultantClientDetails"
             android:exported="false" />
         <activity

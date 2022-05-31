@@ -137,9 +137,11 @@ public class UserHomeActivity extends AppCompatActivity {
 
             case  R.id.aboutappMenuId:
                 Toast.makeText(UserHomeActivity.this, "About app selected", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(UserHomeActivity.this,AboutApp.class));
                 return true;
             case  R.id.aboutdevelopersMenuId:
                 Toast.makeText(UserHomeActivity.this, "About Developers selected", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(UserHomeActivity.this,AboutDevelopver.class));
                 return true;
             case  R.id.signoutMenuId:
                 Toast.makeText(UserHomeActivity.this, "Sign out selected", Toast.LENGTH_SHORT).show();
