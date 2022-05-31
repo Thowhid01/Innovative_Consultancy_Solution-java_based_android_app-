@@ -38,6 +38,7 @@ public class ConsultantBolgVedioSelectActivity extends AppCompatActivity {
             public void onClick(View view) {
                     Intent intent1=new Intent(ConsultantBolgVedioSelectActivity.this,MakeBlogActivity.class);
                     intent1.putExtra("email",email);
+                    finish();
                     startActivity(intent1);
             }
         });
@@ -46,6 +47,7 @@ public class ConsultantBolgVedioSelectActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent1=new Intent(ConsultantBolgVedioSelectActivity.this,UploadVedioActivity.class);
                 intent1.putExtra("email",email);
+                finish();
                 startActivity(intent1);
             }
         });
