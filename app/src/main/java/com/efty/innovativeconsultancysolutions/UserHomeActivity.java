@@ -93,10 +93,28 @@ public class UserHomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.profileMenuId:
+
                 Intent intent=getIntent();
+                String na,ph,da,work,bl,gender,ab,img;
                 String email=intent.getStringExtra("email");
+                na= intent.getStringExtra("name");
+                ph=intent.getStringExtra("phone");
+                da=intent.getStringExtra("date");
+               work= intent.getStringExtra("workbackground");
+               bl= intent.getStringExtra("bloodgroup");
+               gender= intent.getStringExtra("gender");
+               ab= intent.getStringExtra("about");
+               img=intent.getStringExtra("image");
                 Intent intent1=new Intent(UserHomeActivity.this,UserProfileActivity.class);
                 intent1.putExtra("email",email);
+                intent1.putExtra("name",na);
+                intent1.putExtra("phone",ph);
+                intent1.putExtra("date",da);
+                intent1.putExtra("workbackground",work);
+                intent1.putExtra("bloodgroup",bl);
+                intent1.putExtra("gender",gender);
+                intent1.putExtra("about",ab);
+                intent1.putExtra("image",img);
                 startActivity(intent1);
                 Toast.makeText(UserHomeActivity.this, "Profile selected : "+email, Toast.LENGTH_SHORT).show();
                 return true;
@@ -119,9 +137,11 @@ public class UserHomeActivity extends AppCompatActivity {
 
             case  R.id.aboutappMenuId:
                 Toast.makeText(UserHomeActivity.this, "About app selected", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(UserHomeActivity.this,AboutApp.class));
                 return true;
             case  R.id.aboutdevelopersMenuId:
                 Toast.makeText(UserHomeActivity.this, "About Developers selected", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(UserHomeActivity.this,AboutDevelopver.class));
                 return true;
             case  R.id.signoutMenuId:
                 Toast.makeText(UserHomeActivity.this, "Sign out selected", Toast.LENGTH_SHORT).show();

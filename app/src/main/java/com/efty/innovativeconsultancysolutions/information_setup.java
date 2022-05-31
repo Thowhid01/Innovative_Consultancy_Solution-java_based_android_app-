@@ -44,6 +44,7 @@ public class information_setup extends AppCompatActivity {
     StorageReference storageReference;
     String imageUrl;
     Integer catagory;
+    Intent intent1;
     HashMap<String,Object> hashMap=new HashMap<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +110,9 @@ public class information_setup extends AppCompatActivity {
                          // FirebaseDatabase.getInstance().getReference().child("Consultant").push().setValue(hashMap);
 
                           Toast.makeText(information_setup.this, "Data added as a consultant successfully!!", Toast.LENGTH_SHORT).show();
+
                           Intent intent1=new Intent(information_setup.this,ConsultantBolgVedioSelectActivity.class);
+                          intent1.putExtra("email",em);
                           startActivity(intent1);
                       }
                       else if(catagory==2){
@@ -119,8 +122,17 @@ public class information_setup extends AppCompatActivity {
                         //  FirebaseDatabase.getInstance().getReference().child("User").push().setValue(hashMap);
 
                           Toast.makeText(information_setup.this, "Data added as a user successfully!!", Toast.LENGTH_SHORT).show();
-                          Intent intent1=new Intent(information_setup.this,UserHomeActivity.class);
-                          startActivity(intent1);
+                          intent1=new Intent(information_setup.this,UserHomeActivity.class);
+                          intent1.putExtra("name",na);
+                          intent1.putExtra("phone",ph);
+                          intent1.putExtra("date",da);
+                          intent1.putExtra("workbackground",work);
+                          intent1.putExtra("bloodgroup",bl);
+                          intent1.putExtra("gender",gender);
+                          intent1.putExtra("about",ab);
+                          intent1.putExtra("email",em);
+
+
                       }
                       else {
                           Toast.makeText(information_setup.this, "Something went to wrong!!", Toast.LENGTH_SHORT).show();
@@ -223,6 +235,8 @@ public class information_setup extends AppCompatActivity {
                                             else if(catagory==2){
                                                 hashMap.put("image",imageUrl);
                                                 FirebaseDatabase.getInstance().getReference().child("User").push().setValue(hashMap);
+                                                intent1.putExtra("image",imageUrl);
+                                                startActivity(intent1);
                                             }
 
                                         }

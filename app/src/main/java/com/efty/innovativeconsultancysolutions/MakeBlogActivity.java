@@ -85,6 +85,8 @@ public class MakeBlogActivity extends AppCompatActivity {
                     uploadImage();
 
                     Toast.makeText(MakeBlogActivity.this, "Blog is uploaded", Toast.LENGTH_SHORT).show();
+                    finish();
+                    startActivity(new Intent(MakeBlogActivity.this,ConsultantBolgVedioSelectActivity.class));
 
 
 

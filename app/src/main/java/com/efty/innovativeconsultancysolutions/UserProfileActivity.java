@@ -57,6 +57,26 @@ public class UserProfileActivity extends AppCompatActivity {
         backToHomeUserBtn=findViewById(R.id.backToHomeUserBtnId);
         Intent intent=getIntent();
         email=intent.getStringExtra("email");
+        String na,ph,da,work,bl,gender,ab,img;
+        na= intent.getStringExtra("name");
+        ph=intent.getStringExtra("phone");
+        da=intent.getStringExtra("date");
+        work= intent.getStringExtra("workbackground");
+        bl= intent.getStringExtra("bloodgroup");
+        gender= intent.getStringExtra("gender");
+        ab= intent.getStringExtra("about");
+        img=intent.getStringExtra("image");
+        nameUserTv.setText(na);
+        phoneUserTv.setText(ph);
+        expertUserTv.setText(work);
+        aboutNameUserTv.setText("About "+na);
+        dateOfBirthUserTv.setText(da);
+        bloodUserTv.setText(bl);
+        genderUserTv.setText(gender);
+        aboutDetailsUserTv.setText(ab);
+        emailUserTv.setText(email);
+        Picasso.get().load(img).into(imageUserImageView);
+
         try{
             FirebaseDatabase.getInstance().getReference().child("User").addValueEventListener(new ValueEventListener() {
                 @Override
@@ -101,7 +121,9 @@ public class UserProfileActivity extends AppCompatActivity {
         backToHomeUserBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(UserProfileActivity.this, "Email : "+email, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(UserProfileActivity.this, "Email : "+email, Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(new Intent(UserProfileActivity.this,UserHomeActivity.class));
 
             }
         });
