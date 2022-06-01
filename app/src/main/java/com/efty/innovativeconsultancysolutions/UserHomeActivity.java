@@ -1,6 +1,7 @@
 package com.efty.innovativeconsultancysolutions;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,6 +10,8 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,6 +42,12 @@ public class UserHomeActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Our Experts and UserHomeActivity !!");
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("#25593E"));
+        actionBar.setBackgroundDrawable(colorDrawable);
         Intent i=getIntent();
         getSupportActionBar().setSubtitle(i.getStringExtra("email"));
 

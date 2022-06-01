@@ -1,12 +1,16 @@
 package com.efty.innovativeconsultancysolutions;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -29,10 +33,17 @@ public class consultantClientDetails extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("consultantClientDetails !!");
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("#25593E"));
+        actionBar.setBackgroundDrawable(colorDrawable);
 
         Intent intent=getIntent();
         String email=intent.getStringExtra("email").toString();
         getSupportActionBar().setSubtitle(email);
+
 
         clientData=new ArrayList<>();
         mAuth=FirebaseAuth.getInstance();
@@ -66,5 +77,15 @@ public class consultantClientDetails extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId()==android.R.id.home){
+            this.finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

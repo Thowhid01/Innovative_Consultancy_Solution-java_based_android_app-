@@ -93,7 +93,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Already Have an Account?"
+                    android:text="Don't Have an Account?"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     android:layout_marginLeft="40dp"

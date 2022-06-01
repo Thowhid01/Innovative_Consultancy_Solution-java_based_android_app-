@@ -1,11 +1,14 @@
 package com.efty.innovativeconsultancysolutions;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +17,6 @@ import android.widget.Button;
 public class getting_started extends AppCompatActivity {
     private Button loginActivityGettingButton;
     private Button signupgettingStartActivityButton;
-    private Button facebookSignUp;
 
 
     @Override
@@ -24,7 +26,12 @@ public class getting_started extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Getting Started !!");
-        getSupportActionBar().setSubtitle("Hi...");
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("#25593E"));
+        actionBar.setBackgroundDrawable(colorDrawable);
         loginActivityGettingButton=findViewById(R.id.loginActivityGettingButtonId);
         signupgettingStartActivityButton=findViewById(R.id.signupgettingStartActivityButtonid);
        signupgettingStartActivityButton.setOnClickListener(new View.OnClickListener() {
@@ -42,13 +49,6 @@ public class getting_started extends AppCompatActivity {
             }
         });
 
-        facebookSignUp=findViewById(R.id.facebookSignupgettingStartActivityButtonid);
-        facebookSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getting_started.this,UserHomeActivity.class));
-            }
-        });
 
     }
 

@@ -27,6 +27,7 @@
             android:textStyle="normal"
             android:textColor="@color/black"
             android:textSize="20sp"
+            android:padding="5dp"
             android:textAlignment="center"
             android:justificationMode="inter_word"
             android:background="#C4C4C4"

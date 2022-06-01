@@ -2,9 +2,12 @@ package com.efty.innovativeconsultancysolutions;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -33,6 +36,14 @@ public class consultationDetails extends AppCompatActivity {
         setContentView(R.layout.activity_consultation_details);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("consultationDetails !!");
+
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("#25593E"));
+        actionBar.setBackgroundDrawable(colorDrawable);
+
         submitBtn=findViewById(R.id.submitBtnId);
         homeBtn=findViewById(R.id.homeBtnId);
         nameTv=findViewById(R.id.consultantNameTv);
