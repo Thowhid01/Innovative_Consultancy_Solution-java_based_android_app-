@@ -93,7 +93,9 @@ public class UploadVedioActivity extends AppCompatActivity {
 
                     Toast.makeText(UploadVedioActivity.this, "Data set and video upload successful !!", Toast.LENGTH_SHORT).show();
                     finish();
-                    startActivity(new Intent(UploadVedioActivity.this,ConsultantBolgVedioSelectActivity.class));
+                    Intent intent=new Intent(UploadVedioActivity.this,ConsultantBolgVedioSelectActivity.class);
+                    intent.putExtra("email",email);
+                    startActivity(intent);
 
                 }catch (Exception e){
                     Toast.makeText(UploadVedioActivity.this, "Problem in Uploadvideo : "+e, Toast.LENGTH_SHORT).show();

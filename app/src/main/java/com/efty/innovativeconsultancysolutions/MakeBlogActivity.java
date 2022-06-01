@@ -96,9 +96,9 @@ public class MakeBlogActivity extends AppCompatActivity {
 
                     Toast.makeText(MakeBlogActivity.this, "Blog is uploaded", Toast.LENGTH_SHORT).show();
                     finish();
-                    startActivity(new Intent(MakeBlogActivity.this,ConsultantBolgVedioSelectActivity.class));
-
-
+                    Intent intent=new Intent(MakeBlogActivity.this,ConsultantBolgVedioSelectActivity.class);
+                    intent.putExtra("email",email);
+                    startActivity(intent);
 
 
                 }catch (Exception e){
