@@ -234,7 +234,7 @@ public class MakeBlogActivity extends AppCompatActivity {
 
         if(item.getItemId()==android.R.id.home){
             this.finish();
-            startActivity(new Intent(MakeBlogActivity.this,ConsultantBolgVedioSelectActivity.class));
+           // startActivity(new Intent(MakeBlogActivity.this,ConsultantBolgVedioSelectActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
@@ -250,7 +250,7 @@ public class MakeBlogActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();
-                startActivity(new Intent(MakeBlogActivity.this,ConsultantBolgVedioSelectActivity.class));
+             //   startActivity(new Intent(MakeBlogActivity.this,ConsultantBolgVedioSelectActivity.class));
             }
         });
         builder.setNegativeButton("No",new DialogInterface.OnClickListener() {

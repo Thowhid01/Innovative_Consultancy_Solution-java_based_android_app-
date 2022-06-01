@@ -172,7 +172,7 @@ public class UploadVedioActivity extends AppCompatActivity {
 
         if(item.getItemId()==android.R.id.home){
             this.finish();
-            startActivity(new Intent(UploadVedioActivity.this,ConsultantBolgVedioSelectActivity.class));
+           // startActivity(new Intent(UploadVedioActivity.this,ConsultantBolgVedioSelectActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
@@ -188,7 +188,7 @@ public class UploadVedioActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();
-                startActivity(new Intent(UploadVedioActivity.this,ConsultantBolgVedioSelectActivity.class));
+              //  startActivity(new Intent(UploadVedioActivity.this,ConsultantBolgVedioSelectActivity.class));
             }
         });
         builder.setNegativeButton("No",new DialogInterface.OnClickListener() {
