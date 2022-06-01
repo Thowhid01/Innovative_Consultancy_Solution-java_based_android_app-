@@ -1,12 +1,15 @@
 package com.efty.innovativeconsultancysolutions;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -30,7 +33,13 @@ public class AllBlogShow extends AppCompatActivity {
         setContentView(R.layout.activity_all_blog_show);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("All blogs and AllBlogShow !!");
-        getSupportActionBar().setSubtitle("Hi..");
+
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("#25593E"));
+        actionBar.setBackgroundDrawable(colorDrawable);
 
         blogItemData=new ArrayList<>();
         mAuth=FirebaseAuth.getInstance();

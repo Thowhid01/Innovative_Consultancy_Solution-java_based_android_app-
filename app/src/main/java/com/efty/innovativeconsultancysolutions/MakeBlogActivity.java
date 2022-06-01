@@ -1,12 +1,15 @@
 package com.efty.innovativeconsultancysolutions;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -50,10 +53,17 @@ public class MakeBlogActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("MakeBlogActivity !!");
 
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("#25593E"));
+        actionBar.setBackgroundDrawable(colorDrawable);
 
         intent=getIntent();
         email=intent.getStringExtra("email");
         getSupportActionBar().setSubtitle("Hi "+email);
+
         Toast.makeText(MakeBlogActivity.this, "Make Blog : "+email, Toast.LENGTH_SHORT).show();
 
         blogBodyTv=findViewById(R.id.blogBodyTextViewId);
