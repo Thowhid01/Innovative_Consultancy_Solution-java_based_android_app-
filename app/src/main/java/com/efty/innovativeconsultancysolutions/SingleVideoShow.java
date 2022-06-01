@@ -53,7 +53,7 @@ public class SingleVideoShow extends AppCompatActivity {
         videoView=findViewById(R.id.singleVideoVideoViewId);
         titleTv.setText(title);
         emailTv.setText(email);
-        categoryTv.setText(category);
+        categoryTv.setText("Category "+category);
         videoDetailsTv.setText(videoDetails);
         Uri uri=Uri.parse(videoLink);
         videoView.setVideoURI(uri);
