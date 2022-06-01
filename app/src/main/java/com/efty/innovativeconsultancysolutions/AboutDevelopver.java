@@ -19,7 +19,7 @@ public class AboutDevelopver extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_developver);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("AboutDevelopver");
+        getSupportActionBar().setTitle("AboutDeveloper");
         ActionBar actionBar;
         actionBar = getSupportActionBar();
 

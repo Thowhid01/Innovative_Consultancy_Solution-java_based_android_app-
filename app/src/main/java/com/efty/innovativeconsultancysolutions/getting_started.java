@@ -17,7 +17,6 @@ import android.widget.Button;
 public class getting_started extends AppCompatActivity {
     private Button loginActivityGettingButton;
     private Button signupgettingStartActivityButton;
-    private Button facebookSignUp;
 
 
     @Override
@@ -50,13 +49,6 @@ public class getting_started extends AppCompatActivity {
             }
         });
 
-        facebookSignUp=findViewById(R.id.facebookSignupgettingStartActivityButtonid);
-        facebookSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getting_started.this,UserHomeActivity.class));
-            }
-        });
 
     }
 
